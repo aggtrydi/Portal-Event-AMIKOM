@@ -9,12 +9,12 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        app:srcCompat="@drawable/Logo"
-        android:layout_gravity="center"/>
+<!--    <ImageView-->
+<!--        android:id="@+id/imgLogo"-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        app:srcCompat="@drawable/Logo"-->
+<!--        android:layout_gravity="center"/>-->
 
     <EditText
         android:id="@+id/edtxtUsername"

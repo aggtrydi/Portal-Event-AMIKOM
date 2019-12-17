@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrasi"
+        android:text="@string/app_registrasi"
         android:textSize="30dp"
         />
 
@@ -26,11 +26,37 @@
         android:text="Name" />
 
     <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="NIM"
+        android:paddingLeft="10dp"/>
+
+    <EditText
         android:id="@+id/reg_jurusan"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="Jurusan"
-        android:paddingLeft="10dp"
+        android:paddingLeft="10dp"/>
 
-    />
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:text="E-mail"/>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:textSize="10dp"
+            android:text="Registrasi"
+            android:layout_marginLeft="130dp"/>
+
+
+
+    </LinearLayout>
 </LinearLayout>

@@ -29,6 +29,7 @@
         android:textColorHint="@color/ColorTextLogin"/>
 
     <EditText
+        android:id="@+id/reg_nim"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:hint="NIM"
@@ -44,11 +45,25 @@
         android:textColorHint="@color/ColorTextLogin"/>
 
     <EditText
-        android:id="@+id/re_email"
+        android:id="@+id/reg_email"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:hint="E-mail"
+        android:textColorHint="@color/ColorTextLogin"/>
+    <EditText
+        android:id="@+id/reg_pengguna"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:hint="Username"
+        android:textColorHint="@color/ColorTextLogin"/>
+    <EditText
+        android:id="@+id/reg_sandi"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:hint="Password"
         android:textColorHint="@color/ColorTextLogin"/>
 
     <LinearLayout

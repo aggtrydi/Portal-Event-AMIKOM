@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "785497532154",
+    "firebase_url": "https://portal-event-amikom-b83de.firebaseio.com",
+    "project_id": "portal-event-amikom-b83de",
+    "storage_bucket": "portal-event-amikom-b83de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785497532154:android:a1726b9fc05900fd0b8b43",
+        "android_client_info": {
+          "package_name": "com.example.mobile.portaleventamikom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785497532154-dmrbi95rlfmhm94huk3cvm4brfcv1vs5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqxuD5Ft-Z8OaiTlyqT0OuRe6TCTL6Osg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785497532154-dmrbi95rlfmhm94huk3cvm4brfcv1vs5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

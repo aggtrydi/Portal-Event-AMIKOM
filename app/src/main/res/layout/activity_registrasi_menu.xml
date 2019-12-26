@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="match_parent"
-    tools:context=".registrasi_menu">
+    tools:context=".RegistrasiActivity">
 
 
     <TextView
@@ -23,26 +23,27 @@
         android:ems="10"
         android:paddingLeft="10dp"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="Name" />
 
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="NIM"
+        android:hint="NIM"
         android:paddingLeft="10dp"/>
 
     <EditText
         android:id="@+id/reg_jurusan"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Jurusan"
+        android:hint="Jurusan"
         android:paddingLeft="10dp"/>
 
     <EditText
+        android:id="@+id/re_email"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
-        android:text="E-mail"/>
+        android:hint="E-mail"/>
 
     <LinearLayout
         android:layout_width="250dp"
@@ -50,6 +51,7 @@
         android:orientation="horizontal"
         >
         <Button
+            android:id="@+id/btnReg"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:textSize="10dp"

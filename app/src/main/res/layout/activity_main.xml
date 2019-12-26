@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/gradient_bg"
     android:gravity="center"
     tools:context=".LoginActivity">
 
@@ -22,7 +23,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Username"/>
+        android:hint="Username"
+        android:textColorHint="@color/ColorTextLogin"/>
 
     <EditText
         android:id="@+id/edtxtPassword"
@@ -30,7 +32,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Password"/>
+        android:hint="Password"
+        android:textColorHint="@color/ColorTextLogin"/>
 
     <Button
         android:id="@+id/btnLogin"
@@ -43,7 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Belum Punya Akun ?"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:textColor="@color/ColorTextLogin"/>
 
     <Button
         android:id="@+id/btnDaftar"
@@ -51,7 +55,7 @@
         android:layout_height="wrap_content"
         android:text="Daftar"
         android:background="#000fffff"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorButtonDaftar"
         android:textAlignment="center"
         />
 

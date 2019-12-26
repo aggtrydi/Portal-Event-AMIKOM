@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
     tools:context=".RegistrasiActivity">
 
 
@@ -14,6 +15,7 @@
         android:layout_height="wrap_content"
         android:text="@string/app_registrasi"
         android:textSize="30dp"
+        android:textColor="@color/ColorTextLogin"
         />
 
     <EditText
@@ -23,27 +25,31 @@
         android:ems="10"
         android:paddingLeft="10dp"
         android:inputType="textPersonName"
-        android:hint="Name" />
+        android:hint="Name"
+        android:textColorHint="@color/ColorTextLogin"/>
 
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:hint="NIM"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/ColorTextLogin"/>
 
     <EditText
         android:id="@+id/reg_jurusan"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:hint="Jurusan"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/ColorTextLogin"/>
 
     <EditText
         android:id="@+id/re_email"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
-        android:hint="E-mail"/>
+        android:hint="E-mail"
+        android:textColorHint="@color/ColorTextLogin"/>
 
     <LinearLayout
         android:layout_width="250dp"

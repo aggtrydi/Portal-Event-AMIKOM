@@ -12,6 +12,7 @@ public class RegistrasiActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try{this.getSupportActionBar().hide();}catch(NullPointerException e){}
         setContentView(R.layout.activity_registrasi_menu);
 
         Button btnReg = (Button)findViewById(R.id.btnReg);

@@ -16,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        try{this.getSupportActionBar().hide();}catch(NullPointerException e){}
         setContentView(R.layout.activity_main);
         Button btnMasuk = (Button)findViewById(R.id.btnLogin);
         Button btnDaftar = (Button)findViewById(R.id.btnDaftar);

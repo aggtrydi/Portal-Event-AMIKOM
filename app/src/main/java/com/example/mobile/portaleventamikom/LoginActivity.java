@@ -51,10 +51,12 @@ public class LoginActivity extends AppCompatActivity {
                 );
             }
         });
+
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent daftarIntent =  new Intent(LoginActivity.this, RegistrasiActivity.class);
+                startActivity(daftarIntent);
             }
         });
 
@@ -69,8 +71,8 @@ public class LoginActivity extends AppCompatActivity {
                     User login = dataSnapshot.child(pengguna).getValue(User.class);
                     if(login.getSandi().equals(sandi)){
                         Toast.makeText(LoginActivity.this, "Sukses Login",Toast.LENGTH_SHORT).show();
-                        Intent daftarIntent =  new Intent(LoginActivity.this, MenuActivity.class);
-                        startActivity(daftarIntent);
+                        Intent masukIntent =  new Intent(LoginActivity.this, MenuActivity.class);
+                        startActivity(masukIntent);
                     } else
                         Toast.makeText(LoginActivity.this,"Sandi Salah",Toast.LENGTH_SHORT).show();
                 } else

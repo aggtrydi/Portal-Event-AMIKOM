@@ -55,7 +55,7 @@ public class RegistrasiActivity extends AppCompatActivity {
                 user.setJurusan(regJurusan.getText().toString());
                 user.setEmail(regEmail.getText().toString());
                 user.setPengguna(regPengguna.getText().toString());
-                user.setSandi(regPengguna.getText().toString());
+                user.setSandi(regSandi.getText().toString());
 
                 dbref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override

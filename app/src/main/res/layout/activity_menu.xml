@@ -7,18 +7,21 @@
     tools:context=".MenuActivity"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnvMain"
+            app:menu="@menu/menu_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </androidx.appcompat.widget.Toolbar>
     <FrameLayout
         android:id="@+id/frameMain"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnvMain"
-        app:menu="@menu/menu_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
 
 </LinearLayout>

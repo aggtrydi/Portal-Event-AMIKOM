@@ -1,4 +1,4 @@
-package com.example.mobile.portaleventamikom;
+package com.example.mobile.portaleventamikom.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
+import com.example.mobile.portaleventamikom.R;
 import com.example.mobile.portaleventamikom.fragment.DashboardFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationMenu;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

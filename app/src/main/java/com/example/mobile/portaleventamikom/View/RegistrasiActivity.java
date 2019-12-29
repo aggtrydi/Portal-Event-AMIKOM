@@ -1,4 +1,4 @@
-package com.example.mobile.portaleventamikom;
+package com.example.mobile.portaleventamikom.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,10 +9,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.mobile.portaleventamikom.Model.User;
+import com.example.mobile.portaleventamikom.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

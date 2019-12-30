@@ -24,7 +24,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Username"
-        android:textColorHint="@color/ColorTextLogin"/>
+        android:textColorHint="@color/ColorTextFrom"
+        android:background="@drawable/edt_user"
+        android:layout_marginBottom="10dp"
+        android:padding="5dp"
+        />
 
     <EditText
         android:id="@+id/edtxtPassword"
@@ -33,31 +37,47 @@
         android:ems="10"
         android:inputType="textPassword"
         android:hint="Password"
-        android:textColorHint="@color/ColorTextLogin"
+        android:padding="5dp"
+        android:textColorHint="@color/ColorTextFrom"
+        android:background="@drawable/edt_user"
+        android:layout_marginBottom="10dp"
         />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:text="Login" />
-
-    <TextView
-        android:id="@+id/txtAkun"
+        android:text="Login"
+        android:textColor="@color/colorAccentSec"
+        android:background="@drawable/button_login"
+        android:layout_marginBottom="10dp"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Belum Punya Akun ?"
-        android:textAlignment="center"
-        android:textColor="@color/ColorTextLogin"/>
+        android:orientation="horizontal" android:gravity="center">
+        <TextView
+            android:id="@+id/txtAkun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum Punya Akun ?"
+            android:textAlignment="center"
+            android:textColor="@color/ColorTextFrom"/>
 
-    <Button
-        android:id="@+id/btnDaftar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Daftar"
-        android:background="#000fffff"
-        android:textColor="@color/colorButtonDaftar"
-        android:textAlignment="center"
-        />
+        <Button
+            android:id="@+id/btnDaftar"
+            android:layout_width="70dp"
+            android:layout_height="19dp"
+            android:background="@drawable/btn_transparent"
+            android:text="Daftar"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccentSec" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sekarang"
+            android:textColor="@color/ColorTextFrom"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

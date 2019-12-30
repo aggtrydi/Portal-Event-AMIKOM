@@ -8,20 +8,56 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-
+        android:id="@+id/group_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnvMain"
-            app:menu="@menu/menu_fragment"
+        android:layout_height="110dp"
+        android:background="@drawable/gradient_bg">
+        <LinearLayout
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:id="@+id/groupUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:id="@+id/imgViewUser"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/logo"/>
+                <TextView
+                    android:id="@+id/txtViewUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NAMA USER"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bnvMain"
+                    app:menu="@menu/menu_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:itemTextColor="@color/colorPrimaryLight"/>
+            </LinearLayout>
+
+        </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
     <FrameLayout
+        android:layout_below="@id/group_toolbar"
         android:id="@+id/frameMain"
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"/>
 
 </LinearLayout>

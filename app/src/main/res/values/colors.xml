@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    //Color Primary
+    <color name="colorPrimary">#8E51CA</color>
+    <color name="colorPrimaryDark">#384883</color>
+    <color name="colorPrimaryLight">#F4F4F2</color>
+
+    //color Second
+    <color name="colorSecond"></color>
+    <color name="colorSecondDark"></color>
+
+    //Color Accent
     <color name="colorAccent">#D81B60</color>
-    <color name="ColorTextLogin">#EBE7E7</color>
+    <color name="colorAccentSec">#FFAC0E</color>
+    <color name="colorAccentThird">#F4F4F2</color>
+
+    //Color Text
+    <color name="ColorTextFrom">#C5BDBD</color>
+    <color name="colorTextFragment">#F7F8F3</color>
+
+    //color Button
+    <color name="colorButtonLogin">#7E35C0</color>
     <color name="colorButtonDaftar">#ECBDEE</color>
+    <color name="colorButtonTrans" >#00FFFFFF</color>
+
 </resources>

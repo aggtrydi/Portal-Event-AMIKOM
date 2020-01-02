@@ -13,7 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mobile.portaleventamikom.R;
+import com.example.mobile.portaleventamikom.fragment.CommentFragment;
 import com.example.mobile.portaleventamikom.fragment.DashboardFragment;
+import com.example.mobile.portaleventamikom.fragment.FavoriteFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationMenu;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,6 +36,8 @@ public class MenuActivity extends AppCompatActivity {
 
     BottomNavigationView bnvHome;
     DashboardFragment dashboardFragment;
+    FavoriteFragment favoriteFragment;
+    CommentFragment commentFragment;
 
     FirebaseAuth uAuth;
     FirebaseUser user;
@@ -69,6 +73,9 @@ public class MenuActivity extends AppCompatActivity {
         changeFragment(dashboardFragment);
         bnvHome =  (BottomNavigationView) findViewById(R.id.bnvMain);
 
+
+
+        //Menampilkan User
         Query query = dbref.orderByChild("email").equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -95,7 +102,7 @@ public class MenuActivity extends AppCompatActivity {
         });
 
 
-
+        //Button View Menu
         bnvHome.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -103,13 +110,19 @@ public class MenuActivity extends AppCompatActivity {
                     case R.id.menuDashboard:
                         changeFragment(dashboardFragment);
                         break;
+                    case R.id.menuFav:
+                        changeFragment(favoriteFragment);
+                        break;
+                    case R.id.menuComment:
+                        changeFragment(commentFragment);
+                        break;
                 }
 
-                return false;
+                return true;
             }
         });
     }
-
+    //change Fragment
     private void changeFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()

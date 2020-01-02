@@ -5,6 +5,9 @@
         android:id="@+id/menuDashboard"
         android:title="Dashboard" />
     <item
-        android:id="@+id/menuLainya"
-        android:title="Lainnya"/>
+        android:id="@+id/menuFav"
+        android:title="Favorite"/>
+    <item
+        android:id="@+id/menuComment"
+        android:title="Comment"/>
 </menu>

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.mobile.portaleventamikom.R;
@@ -52,7 +53,7 @@ public class MenuActivity extends AppCompatActivity {
 
     ImageView imgViewUser;
     TextView txtViewUser;
-    Button  btnLogoutUser;
+//    Button  btnLogoutUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +75,7 @@ public class MenuActivity extends AppCompatActivity {
 
         imgViewUser = findViewById(R.id.imgViewUser);
         txtViewUser = findViewById(R.id.txtViewUser);
-        btnLogoutUser = findViewById(R.id.btnLogoutUser);
+        //btnLogoutUser = findViewById(R.id.btnLogoutUser);
 
         changeFragment(dashboardFragment);
         bnvHome =  (BottomNavigationView) findViewById(R.id.bnvMain);
@@ -107,11 +108,23 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        btnLogoutUser.setOnClickListener(new View.OnClickListener() {
+//        btnLogoutUser.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                uAuth.signOut();
+//                checkUserStatus();
+//            }
+//        });
+
+
+        //Button Linear layout
+
+        LinearLayout menu_profil = (LinearLayout)findViewById(R.id.groupUser);
+        menu_profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uAuth.signOut();
-                checkUserStatus();
+                Intent menuProfil = new Intent(MenuActivity.this, ProfilActivity.class);
+                startActivity(menuProfil);
             }
         });
 
@@ -142,17 +155,17 @@ public class MenuActivity extends AppCompatActivity {
                 .commit();
     }
 
-    private void checkUserStatus(){
-        FirebaseUser user = uAuth.getCurrentUser();
-        if (user!=null){
-
-//            txtUser.setText(user.getEmail());
-//            txtNama.setText(user.getDisplayName());
-
-        }else {
-            Intent i = new Intent(MenuActivity.this, LoginActivity.class);
-            startActivity(i);
-            finish();
-        }
-    }
+//    private void checkUserStatus(){
+//        FirebaseUser user = uAuth.getCurrentUser();
+//        if (user!=null){
+//
+////            txtUser.setText(user.getEmail());
+////            txtNama.setText(user.getDisplayName());
+//
+//        }else {
+//            Intent i = new Intent(MenuActivity.this, LoginActivity.class);
+//            startActivity(i);
+//            finish();
+//        }
+//    }
 }

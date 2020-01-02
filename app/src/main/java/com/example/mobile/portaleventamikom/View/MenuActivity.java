@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.storage.StorageManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,6 +52,7 @@ public class MenuActivity extends AppCompatActivity {
 
     ImageView imgViewUser;
     TextView txtViewUser;
+    Button  btnLogoutUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,7 @@ public class MenuActivity extends AppCompatActivity {
 
         imgViewUser = findViewById(R.id.imgViewUser);
         txtViewUser = findViewById(R.id.txtViewUser);
+        btnLogoutUser = findViewById(R.id.btnLogoutUser);
 
         changeFragment(dashboardFragment);
         bnvHome =  (BottomNavigationView) findViewById(R.id.bnvMain);
@@ -101,6 +105,13 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        btnLogoutUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uAuth.signOut();
+                checkUserStatus();
+            }
+        });
 
         //Button View Menu
         bnvHome.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -128,5 +139,19 @@ public class MenuActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.frameMain, fragment)
                 .commit();
+    }
+
+    private void checkUserStatus(){
+        FirebaseUser user = uAuth.getCurrentUser();
+        if (user!=null){
+
+//            txtUser.setText(user.getEmail());
+//            txtNama.setText(user.getDisplayName());
+
+        }else {
+            Intent i = new Intent(MenuActivity.this, LoginActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 }

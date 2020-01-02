@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-            <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            <LinearLayout
                 android:id="@+id/groupUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,12 +42,19 @@
                     android:layout_gravity="center"/>
                 <Button
                     android:id="@+id/btnLogoutUser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btn_transparent"
-                    android:text="LogOut"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/logout"
                     android:layout_gravity="center|end"
+                    android:layout_marginLeft="150dp"
                     />
+
+<!--                <ImageButton-->
+<!--                    android:id="@+id/btnLogout"-->
+<!--                    android:layout_width="200px"-->
+<!--                    android:layout_height="200px"-->
+<!--                    android:background="@drawable/btn_transparent"-->
+<!--                    app:srcCompat="@drawable/Logout" />-->
 
             </LinearLayout>
 

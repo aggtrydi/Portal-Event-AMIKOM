@@ -22,7 +22,7 @@ public class PopUpEventActivity extends AppCompatActivity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.1), (int)(height*.2));
+        getWindow().setLayout((int)(width*.9), (int)(height*.8));
 
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;

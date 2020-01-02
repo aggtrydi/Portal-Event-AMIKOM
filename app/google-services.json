@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "785497532154-9htg3qnfb2j6i5uhtr3t925hcv6fp94i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobile.portaleventamikom",
+            "certificate_hash": "6d1c864608e18d93126b5a56bbfbcf6deac308ec"
+          }
+        },
+        {
+          "client_id": "785497532154-31qek8fpioi9qv40c44in7tc2ad7cqf0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobile.portaleventamikom",
+            "certificate_hash": "80499b86985eb67c1af5081cd9594ef51d481ae4"
+          }
+        },
+        {
           "client_id": "785497532154-dmrbi95rlfmhm94huk3cvm4brfcv1vs5.apps.googleusercontent.com",
           "client_type": 3
         }

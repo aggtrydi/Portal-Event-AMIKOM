@@ -28,25 +28,18 @@
                 android:background="@drawable/gradient_bg"
                 >
                 <ImageView
-                    android:id="@+id/imgViewUser"
+                    android:id="@+id/imgLogo"
                     android:layout_width="65dp"
                     android:layout_height="65dp"
                     android:src="@drawable/logo"/>
                 <TextView
-                    android:id="@+id/txtViewUser"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtAddEvent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="NAMA USER"
+                    android:text="ADD NEW EVENT"
                     android:textSize="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_gravity="center"/>
-
-                <Button
-                    android:id="@+id/btnLogoutUser"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center|end"
-                    android:background="@drawable/btn_exit" />
 
             </LinearLayout>
             <LinearLayout
@@ -64,14 +57,7 @@
                     android:hint="Masukkan Judul"
                     android:singleLine="true"
                     android:padding="10dp"
-                    />
-
-                <ImageView
-                    android:id="@+id/imgviewPoster"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:drawable/ic_menu_camera"
-                    android:minHeight="200dp"
+                    android:textAlignment="center"
                     />
 
                 <EditText
@@ -83,8 +69,17 @@
                     android:inputType="textCapSentences|textMultiLine"
                     android:padding="10dp"
                     android:minHeight="100dp"
-                    android:gravity="start"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    />
 
+                <ImageView
+                    android:id="@+id/imgviewPoster"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:minHeight="200dp"
                     />
 
                 <Button

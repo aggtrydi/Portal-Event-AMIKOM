@@ -291,7 +291,6 @@ public class AddEvent extends AppCompatActivity {
                     else {
                         pickFromCamera();
                     }
-
                 }
                 if (which == 1) {
                     if (!checkStoragePermission()){
@@ -299,8 +298,6 @@ public class AddEvent extends AppCompatActivity {
                     }else {
                         pickFromGalery();
                     }
-
-
                 }
             }
 

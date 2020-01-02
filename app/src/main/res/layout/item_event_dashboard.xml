@@ -5,7 +5,9 @@
     android:id="@+id/itemListEvent"
     android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/background_fragment">
 
     <LinearLayout
         android:id="@+id/btnGroupPostingan"
@@ -33,13 +35,13 @@
             android:layout_height="wrap_content"
             android:text="Ini Adalah Judul"
             android:textAlignment="center"
-            />
+            android:textStyle="bold" />
         <TextView
             android:layout_below="@+id/txtItemJudul"
             android:id="@+id/txtItemDeskripsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ini adalah Deskripsi"/>
+            android:text="Ini adalah Deskripsi" />
     </RelativeLayout>
     </LinearLayout>
 

@@ -97,7 +97,7 @@ public class MenuActivity extends AppCompatActivity {
                     try {
                         Picasso.get().load(image).into(imgViewUser);
                     } catch (Exception e){
-                        Picasso.get().load(R.drawable.logo).into(imgViewUser);
+                        Picasso.get().load(R.drawable.ic_account_circle_black_24dp).into(imgViewUser);
                     }
                 }
             }

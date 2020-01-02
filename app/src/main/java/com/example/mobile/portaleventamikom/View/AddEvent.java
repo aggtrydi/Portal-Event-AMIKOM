@@ -378,7 +378,7 @@ public class AddEvent extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        if (id == R.id.btnLogoutUser) {
+        if (id == R.id.fabLogout) {
             uAuth.signOut();
         }
 

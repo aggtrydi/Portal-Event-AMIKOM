@@ -59,6 +59,7 @@ public class ProfilActivity extends AppCompatActivity {
 
     Button btnLogoutUser;
     Button btnAddEvent;
+    FloatingActionButton fabLogout;
     FloatingActionButton fab;
 
     String coverorPhoto;
@@ -91,8 +92,9 @@ public class ProfilActivity extends AppCompatActivity {
         camerapermision = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagepermision = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-        btnLogoutUser = findViewById(R.id.btnLogoutUser);
+        //btnLogoutUser = findViewById(R.id.btnLogoutUser);
 
+        fabLogout = findViewById(R.id.fabLogout);
         fab= findViewById(R.id.fabEdit);
 
 
@@ -127,7 +129,7 @@ public class ProfilActivity extends AppCompatActivity {
             }
         });
 
-        btnLogoutUser.setOnClickListener(new View.OnClickListener() {
+        fabLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 uAuth.signOut();

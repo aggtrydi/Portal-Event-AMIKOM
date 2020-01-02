@@ -3,6 +3,8 @@ package com.example.mobile.portaleventamikom.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -23,6 +25,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mobile.portaleventamikom.Adapter.EventAdapter;
+import com.example.mobile.portaleventamikom.Model.ModelPostingan;
 import com.example.mobile.portaleventamikom.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -41,7 +45,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ProfilActivity extends AppCompatActivity {
 
@@ -66,6 +72,10 @@ public class ProfilActivity extends AppCompatActivity {
     Uri uri_image;
     String camerapermision[];
     String storagepermision[];
+
+    RecyclerView rcyView;
+    List<ModelPostingan> postinganList;
+    EventAdapter eventAdapter;
 
     private static final int CAMERA_REQUEST_CODE = 100;
     private static final int STORAGE_REQUEST_CODE = 200;
@@ -96,6 +106,16 @@ public class ProfilActivity extends AppCompatActivity {
 
         fabLogout = findViewById(R.id.fabLogout);
         fab= findViewById(R.id.fabEdit);
+
+        rcyView = (RecyclerView)findViewById(R.id.rcyProfil);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setStackFromEnd(true);
+        linearLayoutManager.setReverseLayout(true);
+
+        rcyView.setLayoutManager(linearLayoutManager);
+
+        postinganList = new ArrayList<>();
+        loadPostingan();
 
 
 
@@ -145,6 +165,31 @@ public class ProfilActivity extends AppCompatActivity {
         });
 
     }
+
+    private void loadPostingan() {
+        DatabaseReference dref = FirebaseDatabase.getInstance().getReference("Postingan");
+        //mengambil semua data dari dref
+        dref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                postinganList.clear();
+                for (DataSnapshot ds : dataSnapshot.getChildren()){
+                    ModelPostingan modelPostingan = ds.getValue(ModelPostingan.class);
+                    postinganList.add(modelPostingan);
+
+                    eventAdapter = new EventAdapter(ProfilActivity.this ,postinganList);
+
+                    rcyView.setAdapter(eventAdapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(ProfilActivity.this,""+databaseError.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void showNameNimProdiUpdate(final String key){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Update "+ key );

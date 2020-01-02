@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -61,27 +62,33 @@ public class RegistrasiActivity extends AppCompatActivity {
         Button btnReg = (Button)findViewById(R.id.btnReg);
 
         btnReg.setOnClickListener(new View.OnClickListener() {
-                                      @Override
-                                      public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 
-                                          String nama = regName.getText().toString().trim();
-                                          String nim = regNIM.getText().toString().trim();
-                                          String jurusan = regJurusan.getText().toString().trim();
-                                          String email = regEmail.getText().toString().trim();
-                                          String pengguna = regPengguna.getText().toString().trim();
-                                          String sandi = regSandi.getText().toString().trim();
-                                          if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                                              regEmail.setText("salah email");
-                                              regEmail.setFocusable(true);
-                                          } else if (sandi.length() < 5) {
-                                              regSandi.setText("Sandi terlalu Pendek");
-                                              regSandi.setFocusable(true);
-                                          } else {
-                                              registerUser(nama, nim, jurusan, email, pengguna, sandi);
-                                          }
-                                      }
+                String nama = regName.getText().toString().trim();
+                String nim = regNIM.getText().toString().trim();
+                String jurusan = regJurusan.getText().toString().trim();
+                String email = regEmail.getText().toString().trim();
+                String pengguna = regPengguna.getText().toString().trim();
+                String sandi = regSandi.getText().toString().trim();
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    regEmail.setText("salah email");
+                    regEmail.setFocusable(true);
+                } else if (sandi.length() < 5) {
+                    regSandi.setText("Sandi terlalu Pendek");
+                    regSandi.setFocusable(true);
+                } else {
+                    registerUser(nama, nim, jurusan, email, pengguna, sandi);
+                }
+//                newActivity();
+            }
             });
     }
+
+//    private void newActivity() {
+//        Intent regSukses = new Intent(RegistrasiActivity.this, LoginActivity.class);
+//        startActivity(regSukses);
+//    }
 
     private void registerUser(final String nama, final String nim, final String jurusan, String email, final String pengguna, String sandi) {
 

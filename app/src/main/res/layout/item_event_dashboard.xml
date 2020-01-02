@@ -9,15 +9,26 @@
     android:layout_margin="20dp"
     >
 
-    <ImageView
-        android:layout_margin="10dp"
-        android:id="@+id/imgItemEvent"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:contentDescription="TODO"
-        tools:ignore="ContentDescription, HardcoredText"/>
     <LinearLayout
-        android:layout_below="@id/imgItemEvent"
+        android:id="@+id/groupImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_margin="10dp"
+            android:id="@+id/imgItemEvent"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:contentDescription="TODO"
+            tools:ignore="ContentDescription, HardcoredText"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="ljka;fdjfkjpsjda'p;jgpjsd;gjs;da;sjkfjsd;fkj;sdf;sjdfsdjf;dsjlsjdf;sjdf;ldjs;fljsd;fjsd;ljf;sdljf;lsdjfl;jsd;lfjsd;jfp;ksdjfpwieurpj;dfjsf;dj"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/groupImage"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:layout_width="match_parent"

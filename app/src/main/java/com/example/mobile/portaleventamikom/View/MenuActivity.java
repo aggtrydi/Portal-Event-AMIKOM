@@ -89,8 +89,6 @@ public class MenuActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()){
                     String nama = "" + ds.child("nama").getValue();
-                    String nim = "" + ds.child("nim").getValue();
-                    String jurusan = ""+ds.child("jurusan").getValue();
                     String image = ""+ds.child("image").getValue();
 
                     txtViewUser.setText(nama);

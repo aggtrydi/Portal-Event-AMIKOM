@@ -2,16 +2,32 @@ package com.example.mobile.portaleventamikom.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mobile.portaleventamikom.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +39,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
 
 public class ProfilActivity extends AppCompatActivity {
 
@@ -39,7 +57,17 @@ public class ProfilActivity extends AppCompatActivity {
     TextView txtViewNama, txtViewNim, txtViewProdi;
 
     Button btnLogoutUser;
+    FloatingActionButton fab;
 
+    String coverorPhoto;
+    Uri uri_image;
+    String camerapermision[];
+    String storagepermision[];
+
+    private static final int CAMERA_REQUEST_CODE = 100;
+    private static final int STORAGE_REQUEST_CODE = 200;
+    private static final int IMAGE_PICK_GALLERY_CODE = 300;
+    private static final int IMAGE_PICK_CAMERA_CODE = 400;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +88,7 @@ public class ProfilActivity extends AppCompatActivity {
 
         btnLogoutUser = findViewById(R.id.btnLogoutUser);
 
+        fab= findViewById(R.id.fabEdit);
 
         try{this.getSupportActionBar().hide();}catch(NullPointerException e){}
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -95,13 +124,179 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 uAuth.signOut();
-                checStatusUser();
+                checkStatusUser();
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showEditProfilDialog();
             }
         });
 
     }
 
-    private void checStatusUser() {
+    private void showEditProfilDialog() {
+        String options[] = {"Edit  Foto","Edit Cover", "Edit Nim", "Edit Nama", "Edit Prodi"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Pilih aksi");
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                if (which == 0) {
+                    coverorPhoto = "image";
+                    showImagePictureDialogue();
+
+                } else if (which == 1) {
+                    coverorPhoto = "cover";
+                    showImagePictureDialogue();
+
+                } else if (which == 2) {
+                    showNameNimProdiUpdate("nim");
+
+                } else if (which == 3) {
+                    showNameNimProdiUpdate("nama");
+
+
+                }else if (which==4){
+                    showNameNimProdiUpdate("prodi");
+                }
+
+            }
+        });
+        builder.create().show();
+    }
+
+    private void showImagePictureDialogue() {
+
+        String options[] = {"Camera", "Galery"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Pilih Gambar");
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                if (which == 0) {
+                    if (!checkCameraPermission()) {
+                        requstCamerapermission();
+                    } else {
+                        pickFromCamera();
+                    }
+
+                } else if (which == 1) {
+                    if (!checkStoraegPermission()) {
+                        requststoragepermission();
+                    } else {
+                        pickFroGalerry();
+                    }
+
+                }
+
+            }
+        });
+        builder.create().show();
+
+    }
+
+    private void pickFromCamera() {
+        ContentValues values = new ContentValues();
+        values.put(MediaStore.Images.Media.TITLE, "Temp Pic");
+        values.put(MediaStore.Images.Media.DESCRIPTION, "temp Description");
+
+        //put image url
+        uri_image = this.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+
+        //startCamera
+        Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        camera.putExtra(MediaStore.EXTRA_OUTPUT, uri_image);
+        startActivityForResult(camera, IMAGE_PICK_CAMERA_CODE);
+    }
+
+    private boolean checkCameraPermission() {
+        boolean result = ContextCompat.checkSelfPermission(ProfilActivity.this, Manifest.permission.CAMERA) == (PackageManager.PERMISSION_GRANTED);
+
+        boolean result1 = ContextCompat.checkSelfPermission(ProfilActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                == (PackageManager.PERMISSION_GRANTED);
+        return result && result1;
+    }
+
+
+    private void requstCamerapermission(){
+        requestPermissions(camerapermision,CAMERA_REQUEST_CODE);
+
+    }
+    private boolean checkStoraegPermission(){
+        boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                == (PackageManager.PERMISSION_GRANTED);
+        return result;
+    }
+
+    private void requststoragepermission(){
+        requestPermissions(storagepermision,STORAGE_REQUEST_CODE);
+    }
+
+    private void pickFroGalerry(){
+        Intent gallery = new Intent(Intent.ACTION_PICK);
+        gallery.setType("image/*");
+        startActivityForResult(gallery, IMAGE_PICK_GALLERY_CODE);
+
+    }
+
+    private void showNameNimProdiUpdate(final String key){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Update "+ key );
+        LinearLayout linearLayout= new LinearLayout(this);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.setPadding(10,10,10,10);
+
+        final EditText editText = new EditText(this);
+        editText.setHint("Enter" + key);
+        linearLayout.addView(editText);
+
+        builder.setView(linearLayout);
+
+        builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String value = editText.getText().toString().trim();
+                if (!TextUtils.isEmpty(value)){
+                    HashMap<String,Object> results = new HashMap<>();
+                    results.put(key, value);
+
+                    dbref.child(user.getUid()).updateChildren(results).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+
+                            Toast.makeText(ProfilActivity.this,"Updated...",Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                            Toast.makeText(ProfilActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+
+                }else {
+                    Toast.makeText(ProfilActivity.this,"Plase Enter" + key+"",Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.create().show();
+
+
+    }
+    private void checkStatusUser() {
 
         FirebaseUser user = uAuth.getCurrentUser();
         if(user!=null){

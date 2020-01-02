@@ -29,11 +29,9 @@
                     android:id="@+id/imgViewCover"
                     android:layout_width="match_parent"
                     android:layout_height="170dp"
-                    android:background="#615BEC"
+                    android:background="@drawable/gradient_bg"
                     android:scaleType="fitXY"
                     >
-
-
                 </ImageView>
 
 
@@ -126,9 +124,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
         android:src="@drawable/ic_add_black_24dp"
-        android:backgroundTint="#0F49E2"
-
-
+        android:backgroundTint="@color/colorButtonLogin"
         />
 
 

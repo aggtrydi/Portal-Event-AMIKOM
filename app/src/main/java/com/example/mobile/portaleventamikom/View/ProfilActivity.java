@@ -59,6 +59,7 @@ public class ProfilActivity extends AppCompatActivity {
     TextView txtViewNama, txtViewNim, txtViewProdi;
 
     Button btnLogoutUser;
+    Button btnAddEvent;
     FloatingActionButton fab;
 
     String coverorPhoto;

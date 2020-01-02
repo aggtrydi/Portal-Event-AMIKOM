@@ -22,6 +22,7 @@
             android:contentDescription="TODO"
             tools:ignore="ContentDescription, HardcoredText"/>
         <TextView
+            android:id="@+id/textItemJudul"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="ljka;fdjfkjpsjda'p;jgpjsd;gjs;da;sjkfjsd;fkj;sdf;sjdfsdjf;dsjlsjdf;sjdf;ldjs;fljsd;fjsd;ljf;sdljf;lsdjfl;jsd;lfjsd;jfp;ksdjfpwieurpj;dfjsf;dj"/>

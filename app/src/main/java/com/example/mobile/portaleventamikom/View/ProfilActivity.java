@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.example.mobile.portaleventamikom.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,6 +39,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -86,9 +88,14 @@ public class ProfilActivity extends AppCompatActivity {
         txtViewNim = findViewById(R.id.txtViewNim);
         txtViewProdi = findViewById(R.id.txtViewProdi);
 
+        camerapermision = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        storagepermision = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
         btnLogoutUser = findViewById(R.id.btnLogoutUser);
 
         fab= findViewById(R.id.fabEdit);
+
+
 
         try{this.getSupportActionBar().hide();}catch(NullPointerException e){}
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -134,6 +141,58 @@ public class ProfilActivity extends AppCompatActivity {
                 showEditProfilDialog();
             }
         });
+
+    }
+    private void showNameNimProdiUpdate(final String key){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Update "+ key );
+        LinearLayout linearLayout= new LinearLayout(this);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.setPadding(10,10,10,10);
+
+        final EditText editText = new EditText(this);
+        editText.setHint("Enter" + key);
+        linearLayout.addView(editText);
+
+        builder.setView(linearLayout);
+
+        builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String value = editText.getText().toString().trim();
+                if (!TextUtils.isEmpty(value)){
+                    HashMap<String,Object> results = new HashMap<>();
+                    results.put(key, value);
+
+                    dbref.child(user.getUid()).updateChildren(results).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+
+                            Toast.makeText(ProfilActivity.this,"Updated...",Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                            Toast.makeText(ProfilActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+
+                }else {
+                    Toast.makeText(ProfilActivity.this,"Plase Enter" + key+"",Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.create().show();
+
 
     }
 
@@ -213,6 +272,12 @@ public class ProfilActivity extends AppCompatActivity {
         camera.putExtra(MediaStore.EXTRA_OUTPUT, uri_image);
         startActivityForResult(camera, IMAGE_PICK_CAMERA_CODE);
     }
+    private void pickFroGalerry(){
+        Intent gallery = new Intent(Intent.ACTION_PICK);
+        gallery.setType("image/*");
+        startActivityForResult(gallery, IMAGE_PICK_GALLERY_CODE);
+
+    }
 
     private boolean checkCameraPermission() {
         boolean result = ContextCompat.checkSelfPermission(ProfilActivity.this, Manifest.permission.CAMERA) == (PackageManager.PERMISSION_GRANTED);
@@ -221,81 +286,125 @@ public class ProfilActivity extends AppCompatActivity {
                 == (PackageManager.PERMISSION_GRANTED);
         return result && result1;
     }
-
-
-    private void requstCamerapermission(){
-        requestPermissions(camerapermision,CAMERA_REQUEST_CODE);
-
-    }
     private boolean checkStoraegPermission(){
         boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == (PackageManager.PERMISSION_GRANTED);
         return result;
     }
 
+    private void requstCamerapermission(){
+        requestPermissions(camerapermision,CAMERA_REQUEST_CODE);
+
+    }
     private void requststoragepermission(){
         requestPermissions(storagepermision,STORAGE_REQUEST_CODE);
     }
 
-    private void pickFroGalerry(){
-        Intent gallery = new Intent(Intent.ACTION_PICK);
-        gallery.setType("image/*");
-        startActivityForResult(gallery, IMAGE_PICK_GALLERY_CODE);
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
-    }
 
-    private void showNameNimProdiUpdate(final String key){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Update "+ key );
-        LinearLayout linearLayout= new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.setPadding(10,10,10,10);
+        switch (requestCode) {
+            case CAMERA_REQUEST_CODE: {
+                if (grantResults.length > 0) {
 
-        final EditText editText = new EditText(this);
-        editText.setHint("Enter" + key);
-        linearLayout.addView(editText);
+                    boolean cameraAcc = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    boolean writeStorageAcc = grantResults[1] == PackageManager.PERMISSION_GRANTED;
 
-        builder.setView(linearLayout);
+                    if (cameraAcc && writeStorageAcc) {
+                        pickFromCamera();
+                    } else {
+                        Toast.makeText(this, "Plase Enable Camera and Storage Permission", Toast.LENGTH_SHORT).show();
+                    }
 
-        builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String value = editText.getText().toString().trim();
-                if (!TextUtils.isEmpty(value)){
-                    HashMap<String,Object> results = new HashMap<>();
-                    results.put(key, value);
 
-                    dbref.child(user.getUid()).updateChildren(results).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
+                }
 
-                            Toast.makeText(ProfilActivity.this,"Updated...",Toast.LENGTH_SHORT).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
 
-                            Toast.makeText(ProfilActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+            break;
+            case STORAGE_REQUEST_CODE: {
 
-                        }
-                    });
+                if (grantResults.length > 0) {
+                    boolean writeStorageAcc = grantResults[0] == PackageManager.PERMISSION_GRANTED;
 
-                }else {
-                    Toast.makeText(ProfilActivity.this,"Plase Enter" + key+"",Toast.LENGTH_SHORT).show();
+                    if (writeStorageAcc) {
+                        pickFroGalerry();
+                    } else {
+                        Toast.makeText(this, "Plase Enable Storage Permission", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+            break;
 
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == IMAGE_PICK_GALLERY_CODE) {
+                uri_image = data.getData();
+                uploadProfileConvertPhoto(uri_image);
+            }
+            if (requestCode == IMAGE_PICK_CAMERA_CODE) {
+                uploadProfileConvertPhoto(uri_image);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void uploadProfileConvertPhoto(Uri urii) {
+        String filePathName = strgPath +""+coverorPhoto +"_"+ user.getUid();
+
+        StorageReference storageReference2nd = strgRef.child(filePathName);
+        storageReference2nd.putFile(urii)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> uriTask= taskSnapshot.getStorage().getDownloadUrl();
+                        while (!uriTask.isSuccessful());
+                        Uri downloadUri = uriTask.getResult();
+
+                        if (uriTask.isSuccessful()){
+
+                            HashMap<String,Object> results = new HashMap<>();
+                            results.put(coverorPhoto, downloadUri.toString());
+                            dbref.child(user.getUid()).updateChildren(results).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(ProfilActivity.this,"Foto Update", Toast.LENGTH_SHORT).show();
+
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(ProfilActivity.this,"Error Update Foto!"+e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+
+
+                        }else {
+                            Toast.makeText(ProfilActivity.this,"Error",Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(ProfilActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
-        builder.create().show();
-
-
     }
+
     private void checkStatusUser() {
 
         FirebaseUser user = uAuth.getCurrentUser();

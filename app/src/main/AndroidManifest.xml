@@ -3,9 +3,9 @@
     package="com.example.mobile.portaleventamikom">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.AddEvent"></activity>
+        <activity android:name=".View.PopUpEventActivity"
+            android:theme="@style/AppTheme.PopUp">
+        </activity>
+        <activity android:name=".View.AddEvent" />
         <activity android:name=".View.ProfilActivity" />
         <activity android:name=".View.MenuActivity" />
         <activity

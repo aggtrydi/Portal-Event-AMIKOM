@@ -2,6 +2,7 @@ package com.example.mobile.portaleventamikom.fragment;
 
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -69,6 +70,7 @@ public class DashboardFragment extends Fragment {
         linearLayoutManager.setReverseLayout(true);
 
         rcyView.setLayoutManager(linearLayoutManager);
+
 
         fabAddEvent = getActivity().findViewById(R.id.fabAddEvent);
 

@@ -1,6 +1,7 @@
 package com.example.mobile.portaleventamikom.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mobile.portaleventamikom.Filter.EventFilter;
 import com.example.mobile.portaleventamikom.Model.ModelPostingan;
 import com.example.mobile.portaleventamikom.R;
+import com.example.mobile.portaleventamikom.View.PopUpEventActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -69,7 +72,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyHolder> {
         holder.btnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent popUpIntent = new Intent(ctx.getApplicationContext(), PopUpEventActivity.class);
+                ctx.startActivity(popUpIntent);
             }
         });
 

@@ -1,13 +1,135 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.ProfilActivity">
-    <TextView
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+
+                android:orientation="vertical"
+
+                >
+
+
+                <ImageView
+                    android:id="@+id/imgViewCover"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:background="#615BEC"
+                    android:scaleType="fitXY"
+                    >
+
+
+                </ImageView>
+
+
+
+
+            </LinearLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgViewProfil"
+                android:layout_centerHorizontal="true"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/ic_account_circle_black_24dp"
+
+
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_height="130dp"
+                android:layout_below="@id/imgViewProfil"
+                android:layout_centerHorizontal="true"
+                app:cardCornerRadius="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:id="@+id/txtViewNim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nim"
+                        android:textSize="17dp"
+                        android:layout_gravity="center"
+                        android:textStyle="normal"
+                        android:textColor="#000"
+                        android:fontFamily="serif"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtViewNama"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama"
+                        android:textSize="17dp"
+                        android:layout_gravity="center"
+                        android:textStyle="normal"
+                        android:textColor="#000"
+                        android:fontFamily="serif"
+
+                        />
+                    <TextView
+                        android:id="@+id/txtViewProdi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prodi"
+                        android:textSize="17dp"
+                        android:layout_gravity="center"
+                        android:textStyle="normal"
+                        android:textColor="#000"
+                        android:fontFamily="serif"
+                        />
+                    <Button
+                        android:id="@+id/btnLogoutUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Logout"
+                        android:background="@drawable/btn_transparent"
+                        android:layout_gravity="center"
+                        />
+
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profil"
-        tools:ignore="MissingConstraints" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_add_black_24dp"
+        android:backgroundTint="#0F49E2"
+
+
+        />
+
+
+</RelativeLayout>

@@ -30,7 +30,7 @@
                 android:onClick="@+id/btnGroupUser"
                 android:layout_marginLeft="20dp"
                 >
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgViewUser"
                     android:layout_width="65dp"
                     android:layout_height="65dp"

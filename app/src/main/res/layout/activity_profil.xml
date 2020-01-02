@@ -43,7 +43,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
-                android:src="@drawable/ic_account_circle_black_24dp"
+                android:src="@drawable/icon_profile"
 
 
                 />
@@ -123,7 +123,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
-        android:src="@drawable/ic_add_black_24dp"
+        android:src="@drawable/btn_edit"
         android:backgroundTint="@color/colorButtonLogin"
         />
 

@@ -113,7 +113,7 @@
                         android:text="Registrasi"
                         android:textSize="10dp"
                         android:textColor="@color/colorAccentSec"
-                        android:background="@drawable/button_login"/>
+                        android:background="@drawable/btn_login"/>
                 </LinearLayout>
             </LinearLayout>
 

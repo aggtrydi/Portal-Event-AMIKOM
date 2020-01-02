@@ -1,16 +1,16 @@
 package com.example.mobile.portaleventamikom.Model;
 
 public class ModelPostingan {
-    String pId,pJudul,pDescr,PImage,pTime,uid,nama,nim,email,dp;
+    String pId,pJudul,pDescr,pImage,pTime,uid,nama,nim,email,dp;
 
     public ModelPostingan() {
     }
 
-    public ModelPostingan(String pId, String pJudul, String pDescr, String PImage, String pTime, String uid, String nama, String nim, String email, String dp) {
+    public ModelPostingan(String pId, String pJudul, String pDescr, String pImage, String pTime, String uid, String nama, String nim, String email, String dp) {
         this.pId = pId;
         this.pJudul = pJudul;
         this.pDescr = pDescr;
-        this.PImage = PImage;
+        this.pImage = pImage;
         this.pTime = pTime;
         this.uid = uid;
         this.nama = nama;
@@ -43,12 +43,12 @@ public class ModelPostingan {
         this.pDescr = pDescr;
     }
 
-    public String getPImage() {
-        return PImage;
+    public String getpImage() {
+        return pImage;
     }
 
-    public void setPImage(String PImage) {
-        this.PImage = PImage;
+    public void setpImage(String pImage) {
+        this.pImage = pImage;
     }
 
     public String getpTime() {

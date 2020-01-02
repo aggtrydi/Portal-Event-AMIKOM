@@ -46,7 +46,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center|end"
-                    android:background="@drawable/ic_exit_to_app_black_24dp" />
+                    android:background="@drawable/btn_exit" />
 
             </LinearLayout>
             <LinearLayout
@@ -59,7 +59,7 @@
                     android:id="@+id/etJudul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/editextstyle"
+                    android:background="@drawable/et_style"
                     android:layout_marginTop="15dp"
                     android:hint="Masukkan Judul"
                     android:singleLine="true"
@@ -78,7 +78,7 @@
                     android:id="@+id/etDeskripsi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/editextstyle"
+                    android:background="@drawable/et_style"
                     android:hint="Masukkan Deskripsi"
                     android:inputType="textCapSentences|textMultiLine"
                     android:padding="10dp"
@@ -95,7 +95,7 @@
                     android:layout_gravity="end"
                     android:layout_marginTop="15dp"
                     android:textColor="@color/colorAccentSec"
-                    android:background="@drawable/button_login"
+                    android:background="@drawable/btn_login"
                     />
             </LinearLayout>
         </LinearLayout>

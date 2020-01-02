@@ -51,7 +51,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyHolder> {
         String pId = postingList.get(position).getpId();
         String pJudul = postingList.get(position).getpJudul();
         String pDescr = postingList.get(position).getpDescr();
-        String pImage = postingList.get(position).getPImage();
+        String pImage = postingList.get(position).getpImage();
         String pTime = postingList.get(position).getpTime();
 
 
@@ -59,7 +59,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.MyHolder> {
 
         holder.uTitle.setText(pJudul);
         holder.uDeskripsi.setText(pDescr);
-
 
         try {
             Picasso.get().load(pImage).into(holder.uImgPostingan);

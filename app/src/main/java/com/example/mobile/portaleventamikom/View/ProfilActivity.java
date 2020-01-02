@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -117,7 +116,7 @@ public class ProfilActivity extends AppCompatActivity {
                     try {
                         Picasso.get().load(image).into(imgViewUser);
                     } catch (Exception e){
-                        Picasso.get().load(R.drawable.ic_account_circle_black_24dp).into(imgViewUser);
+                        Picasso.get().load(R.drawable.icon_profile).into(imgViewUser);
                     }
                 }
             }

@@ -6,11 +6,9 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.storage.StorageManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,7 +17,6 @@ import com.example.mobile.portaleventamikom.R;
 import com.example.mobile.portaleventamikom.fragment.CommentFragment;
 import com.example.mobile.portaleventamikom.fragment.DashboardFragment;
 import com.example.mobile.portaleventamikom.fragment.FavoriteFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationMenu;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -95,7 +92,7 @@ public class MenuActivity extends AppCompatActivity {
                     try {
                         Picasso.get().load(image).into(imgViewUser);
                     } catch (Exception e){
-                        Picasso.get().load(R.drawable.ic_account_circle_black_24dp).into(imgViewUser);
+                        Picasso.get().load(R.drawable.icon_profile).into(imgViewUser);
                     }
                 }
             }

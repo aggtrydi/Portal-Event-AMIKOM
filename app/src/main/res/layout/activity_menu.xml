@@ -44,9 +44,8 @@
                     android:id="@+id/btnLogoutUser"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/logout"
+                    android:background="@drawable/ic_exit_to_app_black_24dp"
                     android:layout_gravity="center|end"
-                    android:layout_marginLeft="150dp"
                     />
 
 <!--                <ImageButton-->

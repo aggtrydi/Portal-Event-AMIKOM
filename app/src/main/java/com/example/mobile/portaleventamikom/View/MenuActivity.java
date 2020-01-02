@@ -62,6 +62,8 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         dashboardFragment = new DashboardFragment();
+        favoriteFragment = new FavoriteFragment();
+        commentFragment = new CommentFragment();
 
         uAuth = FirebaseAuth.getInstance();
         user = uAuth.getCurrentUser();
@@ -128,7 +130,6 @@ public class MenuActivity extends AppCompatActivity {
                         changeFragment(commentFragment);
                         break;
                 }
-
                 return true;
             }
         });

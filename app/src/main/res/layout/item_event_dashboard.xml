@@ -10,6 +10,8 @@
     >
 
     <LinearLayout
+        android:id="@+id/btnGroupPostingan"
+        android:clickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <ImageView
@@ -42,4 +44,5 @@
             android:text="Ini adalah Deskripsi"/>
     </RelativeLayout>
     </LinearLayout>
+
 </RelativeLayout>

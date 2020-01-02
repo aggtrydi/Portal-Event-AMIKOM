@@ -58,7 +58,6 @@ public class AddEvent extends AppCompatActivity {
 
 
 
-
     ProgressDialog pd;
     //permision contain
     private static final int CAMERA_REQUEST_CODE = 100;
@@ -79,12 +78,6 @@ public class AddEvent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Tambah Postingan");
-
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
         pd = new ProgressDialog(this);
 
         uAuth = FirebaseAuth.getInstance();
@@ -102,7 +95,7 @@ public class AddEvent extends AppCompatActivity {
         storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
 
-        actionBar.setSubtitle(email);
+
         //mendapatkab beberapa info user yang dimasukan
         dbRef = FirebaseDatabase.getInstance().getReference("Use");
         Query query = dbRef.orderByChild("email").equalTo(email);
@@ -441,7 +434,7 @@ public class AddEvent extends AppCompatActivity {
                 // Picasso.get().load(img_uri).into(pImage);
             }
             else if(requestCode == IMAGE_PICK_CAMERA_CODE){
-                img_uri = data.getData();
+                //img_uri = data.getData();
                 imgviewPoster.setImageURI(img_uri);
                 // Picasso.get().load(img_uri).into(pImage);
             }

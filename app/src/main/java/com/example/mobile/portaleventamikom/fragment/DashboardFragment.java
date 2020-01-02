@@ -13,25 +13,42 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.mobile.portaleventamikom.Adapter.EventAdapter;
 import com.example.mobile.portaleventamikom.Filter.EventFilter;
+import com.example.mobile.portaleventamikom.Model.ModelPostingan;
 import com.example.mobile.portaleventamikom.R;
+import com.example.mobile.portaleventamikom.View.AddEvent;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment extends Fragment {
 
-    private EventAdapter adapter;
-    private ArrayList<EventFilter> arrayList;
+    FirebaseAuth uAuth;
+    RecyclerView rcyView;
+    List<ModelPostingan> postinganList;
+    EventAdapter eventAdapter;
+    FloatingActionButton fabAddEvent;
 
-    private String[] Deskripsi ={"event 1", "Event 2"};
-    private int[] Gambar ={R.drawable.logo, R.drawable.logo};
+
+
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -44,30 +61,56 @@ public class DashboardFragment extends Fragment {
         // Inflate the layout for this fragment
         View view_dashboard = inflater.inflate(R.layout.fragment_dashboard, container, false);
         setHasOptionsMenu(true);
-        arrayList = new ArrayList<>();
-        RecyclerView recyclerView = view_dashboard.findViewById(R.id.rcyDashboard);
-        daftarEvent();
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
+        uAuth = FirebaseAuth.getInstance();
+        rcyView = view_dashboard.findViewById(R.id.rcyDashboard);
+        LinearLayoutManager linearLayoutManager =new LinearLayoutManager(getActivity());
+        linearLayoutManager.setStackFromEnd(true);
+        linearLayoutManager.setReverseLayout(true);
 
-        DividerItemDecoration itemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
-        itemDecoration.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.line));
-        recyclerView.addItemDecoration(itemDecoration);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        adapter = new EventAdapter(arrayList);
-        recyclerView.setAdapter(adapter);
+        rcyView.setLayoutManager(linearLayoutManager);
+
+        fabAddEvent = getActivity().findViewById(R.id.fabAddEvent);
+
+        postinganList = new ArrayList<>();
+        loadPost();
+
+        fabAddEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAddEventDialog();
+            }
+        });
+
         return view_dashboard;
     }
 
-    private void daftarEvent() {
-
-        int count = 0;
-        for (String deskripsi : Deskripsi){
-            arrayList.add(new EventFilter(deskripsi, Gambar[count]));
-            count++;
-        }
+    private void showAddEventDialog() {
+        Intent addEventIntent = new Intent(getActivity(), AddEvent.class);
+        startActivity(addEventIntent);
     }
 
+    private void loadPost() {
+        DatabaseReference dref = FirebaseDatabase.getInstance().getReference("Postingan");
+        //mengambil semua data dari dref
+        dref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                postinganList.clear();
+                for (DataSnapshot ds : dataSnapshot.getChildren()){
+                    ModelPostingan modelPostingan = ds.getValue(ModelPostingan.class);
+                    postinganList.add(modelPostingan);
+
+                    eventAdapter = new EventAdapter(getActivity(),postinganList);
+
+                    rcyView.setAdapter(eventAdapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getActivity(),""+databaseError.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

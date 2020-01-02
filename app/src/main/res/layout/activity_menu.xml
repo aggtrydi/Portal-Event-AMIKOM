@@ -67,10 +67,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabEdit"
+            android:id="@+id/fabAddEvent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
@@ -78,7 +79,7 @@
             android:backgroundTint="@color/colorButtonLogin"
             android:src="@drawable/ic_add_black_24dp" />
 
-    </ScrollView>
+
 
 
 </LinearLayout>

@@ -1,15 +1,15 @@
 package com.example.mobile.portaleventamikom.Model;
 
-public class ModelChat {
+public class ModelComment {
 
      String receiver,sender,message,timestamp;
     boolean isSend;
 
-    public ModelChat() {
+    public ModelComment() {
     }
 
 
-    public ModelChat(String reciver, String sender, String message, String timestamp, boolean isSend) {
+    public ModelComment(String reciver, String sender, String message, String timestamp, boolean isSend) {
         this.receiver = reciver;
         this.sender = sender;
         this.message = message;

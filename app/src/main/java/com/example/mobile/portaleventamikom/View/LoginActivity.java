@@ -53,8 +53,6 @@ public class LoginActivity extends AppCompatActivity {
 
         pd = new ProgressDialog(this);
 
-
-
         btnMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,24 +71,21 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void masukUser(String email, String sandi) {
-        pd.show();
 
+
+    private void masukUser(String email, String sandi) {
         mAuth.signInWithEmailAndPassword(email, sandi)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            pd.dismiss();
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent masukIntent =  new Intent(LoginActivity.this, MenuActivity.class);
                             startActivity(masukIntent);
                             finish();
-
                         } else {
 
                         }
-
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {

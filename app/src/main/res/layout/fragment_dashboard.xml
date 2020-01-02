@@ -6,6 +6,7 @@
     tools:context=".fragment.DashboardFragment"
     android:background="@drawable/background_fragment"
     android:orientation="vertical">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcyDashboard"
         android:layout_width="match_parent"

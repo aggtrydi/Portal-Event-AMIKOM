@@ -30,6 +30,7 @@
             android:layout_gravity="center">
 
             <ImageView
+                android:id="@+id/imgProfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/logo_pea" />
@@ -62,22 +63,19 @@
                     android:text="Nama" />
 
                 <TextView
+                    android:id="@+id/txtNama"
                     android:layout_weight="1"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="atrText" />
 
-                <Button
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Ubah" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:layout_width="100dp"
@@ -85,20 +83,18 @@
                     android:text="NIM" />
 
                 <TextView
+                    android:id="@+id/txtNIM"
+                    android:layout_weight="1"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="atrText" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Ubah" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:layout_width="100dp"
@@ -106,14 +102,11 @@
                     android:text="Jurusan" />
 
                 <TextView
+                    android:id="@+id/txtJurusan"
+                    android:layout_weight="1"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="atrText" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Ubah" />
             </LinearLayout>
 
             <LinearLayout
@@ -127,14 +120,12 @@
                     android:text="Email" />
 
                 <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_weight="1"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="atrText" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Ubah" />
             </LinearLayout>
         </LinearLayout>
 
@@ -143,13 +134,20 @@
 
     <!--        Logout -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_width="match_parent"
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Logout" />
+
+        <Button
+            android:id="@+id/btnNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ubah" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline

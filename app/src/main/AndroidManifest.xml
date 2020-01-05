@@ -14,16 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.PopUpEventActivity"
-            android:theme="@style/AppTheme.PopUp">
-        </activity>
-        <activity android:name=".View.AddEvent" />
-        <activity android:name=".View.ProfilActivity" />
-        <activity android:name=".View.MenuActivity" />
+        <activity android:name=".activity.AddEventActivity" />
+        <activity android:name=".activity.UtamaActivity" />
         <activity
-            android:name=".View.RegistrasiActivity"
+            android:name=".activity.SignUpActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".View.LoginActivity">
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

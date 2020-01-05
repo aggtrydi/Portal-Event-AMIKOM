@@ -35,7 +35,7 @@ public class BerandaFragment extends Fragment {
     * Firebase
     * */
 
-    FirebaseAuth eAuth;
+    FirebaseAuth fAuth;
 
     RecyclerView rcyEventBeranda;
     EventModel eventModel;
@@ -55,7 +55,7 @@ public class BerandaFragment extends Fragment {
         View viewBeranda = inflater.inflate(R.layout.fragment_beranda, container, false);
         setHasOptionsMenu(true);
 
-        eAuth = FirebaseAuth.getInstance();
+        fAuth = FirebaseAuth.getInstance();
 
         rcyEventBeranda = viewBeranda.findViewById(R.id.rcyBeranda);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());

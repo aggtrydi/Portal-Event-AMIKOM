@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SignUpActivity">
+    tools:context=".activity.SignUpActivity"
+    android:background="@drawable/background_gradient">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -90,10 +91,12 @@
 
                     <Button
                         android:id="@+id/btnDaftar"
+                        android:background="@drawable/btn_gradient"
+                        android:textColor="#fff"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="130dp"
-                        android:text="Sign Up"
+                        android:text="Daftar"
                         android:textSize="10dp"
                        />
                 </LinearLayout>

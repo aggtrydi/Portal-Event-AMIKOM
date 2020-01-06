@@ -15,6 +15,7 @@ import com.example.mobile.portaleventamikom.fragment.BerandaFragment;
 import com.example.mobile.portaleventamikom.fragment.FavoritFragment;
 import com.example.mobile.portaleventamikom.fragment.ProfilFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class UtamaActivity extends AppCompatActivity {
     BottomNavigationView bnvUtama;
@@ -24,7 +25,7 @@ public class UtamaActivity extends AppCompatActivity {
     FavoritFragment favoritFragment;
     ProfilFragment profilFragment;
 
-    Button btnAddEvent;
+    FloatingActionButton btnAddEvent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,7 @@ public class UtamaActivity extends AppCompatActivity {
 
         changeFragment(berandaFragment);
 
-        btnAddEvent = (Button)findViewById(R.id.btnAddEvent);
+        btnAddEvent = (FloatingActionButton) findViewById(R.id.btnAddEvent);
         bnvUtama = findViewById(R.id.bnvUtama);
         bnvUtama.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

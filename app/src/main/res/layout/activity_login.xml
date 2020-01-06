@@ -1,84 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_gradient">
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_above="@id/input_Login_group">
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageVIew"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="1dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_launcher_foreground"
+            android:layout_width="140dp"
+            android:layout_height="140dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="LOGIN"
-            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:text="AMIKEM 2"
             android:textSize="20sp"/>
-
     </LinearLayout>
 
 
     <LinearLayout
-        android:id="@+id/input_Login_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
         android:orientation="vertical"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="50dp"
-        android:layout_alignParentBottom="true"
-        android:gravity="center">
-
-
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <EditText
             android:id="@+id/edLoginEmail"
+            android:drawablePadding="20dp"
+            android:hint="Nama  Pengguna"
+            android:inputType="textPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nama Pengguna"
-            android:inputType="textPersonName"
-            android:padding="15dp" />
-
+            android:layout_marginBottom="30dp"/>
         <EditText
             android:id="@+id/edLoginSandi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Kata  Sandi"
+            android:drawablePadding="20dp"
+            android:hint="Kata sandi"
             android:inputType="textPassword"
-            android:padding="15dp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:text="LOGIN"
+            android:textColor="#FFF"
+            android:background="@drawable/btn_gradient"
+            android:layout_marginTop="20dp"
             android:textAllCaps="false"
-            android:textColor="#FE5295"
-            android:textSize="17sp"/>
-
+            android:text="Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
         <Button
-            android:clickable="true"
-            android:focusable="true"
             android:id="@+id/signUp_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:padding="10dp"
-            android:text="Belum Punya Akun?  Daftar"
-            android:textAllCaps="true"
-            android:textSize="13dp"
-            android:textStyle="bold"
-
-            android:fontFamily="sans-serif"/>
-
-
+            android:layout_marginTop="10dp"
+            android:textColor="#FFF"
+            android:background="@drawable/btn_gradient"
+            android:textAllCaps="false"
+            android:text="Daftar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
+
 
 </RelativeLayout>

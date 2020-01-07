@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.ProfilFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background_gradient">
 
     <!--    Image view Profil-->
     <androidx.appcompat.widget.Toolbar
@@ -27,13 +28,15 @@
         <androidx.cardview.widget.CardView
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:backgroundTint="#00000000">
 
             <ImageView
                 android:id="@+id/imgProfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logo_pea" />
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_launcher_foreground" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
     <!--     Info View Profil-->
@@ -42,6 +45,11 @@
         android:id="@+id/cardViewProfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:cardCornerRadius="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="50dp"
 >
 
         <LinearLayout
@@ -135,18 +143,22 @@
     <!--        Logout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp">
 
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/btn_gradient"
             android:text="Logout" />
 
         <Button
             android:id="@+id/btnNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_gradient"
             android:text="Ubah" />
     </LinearLayout>
 

@@ -65,7 +65,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
         String email = eventModelList.get(position).getuEmail();
         String nim = eventModelList.get(position).getuNim();
         String dp = eventModelList.get(position).getuImage();
-        String pId = eventModelList.get(position).geteId();
+        final String pId = eventModelList.get(position).geteId();
         String pJudul = eventModelList.get(position).geteJudul();
         String pDescr = eventModelList.get(position).geteDeskripsi();
         String pImage = eventModelList.get(position).geteImage();
@@ -91,26 +91,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
         holder.eFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                EventModel eventModel = new EventModel();
                 String uIdFav = holder.userID.trim();
-                String eIdFav = holder.eventID.trim();
+                String eIdFav = pId.toString().trim();
                 setFavorite(uIdFav, eIdFav);
             }
         });
-    }
-
-    private void setFavorite(String uIdFav, String eIdFav) {
-
-        final String timestamp = String.valueOf(System.currentTimeMillis());
-
-        HashMap<Object, String> hashMap = new HashMap<>();
-        hashMap.put("fId", timestamp);
-        hashMap.put("uId", uIdFav);
-        hashMap.put("eId", eIdFav);
-
-        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("Favorit");
-        dbref.child(timestamp).setValue(hashMap);
-
     }
 
     @Override
@@ -126,11 +111,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
         FirebaseDatabase db;
         DatabaseReference drUser, drEvent, drFavorit;
 
-        ImageView eImageView, uImageView, eFav, eLike;
-        TextView uNama, uNim, uTimes, eJudul, eDeskripsi;
+        ImageView eImageView, eFav, eLike;
+        TextView uTimes, eJudul, eDeskripsi;
         LinearLayout btnMore;
 
-        String userID, eventID , favId, favIdUser, favIdEvent;
+        String userID, favId, favIdUser, favIdEvent;
 
         public eventHolder(@NonNull View itemView){
             super(itemView);
@@ -148,39 +133,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
             drEvent = db.getReference("Event");
             drFavorit = db.getReference("Favorit");
 
-
             FirebaseUser user = uAuth.getCurrentUser();
             userID = user.getUid();
-
-//            drUser.addValueEventListener(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                    for (DataSnapshot ds: dataSnapshot.getChildren()){
-//                        String userId = "" + ds.child("uId").getValue();
-//                        userID = userId;
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                }
-//            });
-
-            drEvent.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for (DataSnapshot ds: dataSnapshot.getChildren()){
-                        String eventId = "" + ds.child("eId").getValue();
-                        eventID = eventId;
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
 
             drFavorit.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -201,5 +155,18 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
                 }
             });
         }
+    }
+
+    private void setFavorite(String uIdFav, String eIdFav) {
+
+        final String timestamp = String.valueOf(System.currentTimeMillis());
+
+        HashMap<Object, String> hashMap = new HashMap<>();
+        hashMap.put("fId", timestamp);
+        hashMap.put("uId", uIdFav);
+        hashMap.put("eId", eIdFav);
+
+        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("Favorit");
+        dbref.child(timestamp).setValue(hashMap);
     }
 }

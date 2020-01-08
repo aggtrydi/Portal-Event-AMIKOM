@@ -5,16 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".fragment.FavoritFragment"
     android:orientation="vertical"
+    android:padding="5dp"
     >
 
-    <androidx.appcompat.widget.Toolbar
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyFavorit"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Favorit"
-            />
+        android:layout_height="wrap_content"
+        android:scrollbarAlwaysDrawVerticalTrack="true">
+    </androidx.recyclerview.widget.RecyclerView>
 
-    </androidx.appcompat.widget.Toolbar>
 </LinearLayout>

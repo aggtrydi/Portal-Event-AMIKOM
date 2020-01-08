@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
@@ -33,6 +34,7 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
         FirebaseAuth uAuth;
         FirebaseUser user;
         //firebase database
+        Query queryRef;
         FirebaseDatabase db;
         DatabaseReference drUser, drEvent, drFavorit;
 
@@ -40,6 +42,7 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
         TextView eJudul, eDeskripsi;
 
         String userID, eventID, favID, favIdUser, favIdEvent;
+
         public favoritHolder(@NonNull View itemView) {
             super(itemView);
             eImageView = itemView.findViewById(R.id.imgFavoritEvent);
@@ -56,6 +59,7 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
             //get from USer
             FirebaseUser user = uAuth.getCurrentUser();
             userID = user.getUid();
+
             //get From database Event
             drEvent.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -73,13 +77,14 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
             });
 
             //get from database favorite
-            drFavorit.addValueEventListener(new ValueEventListener() {
+            queryRef = drFavorit.orderByChild("uId").equalTo(userID);
+            queryRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot ds: dataSnapshot.getChildren()){
+                        String userId = "" + ds.child("uId").getValue();
                         String favId = "" + ds.child("favId").getValue();
                         String eventId = "" + ds.child("eId").getValue();
-                        String userId = "" + ds.child("uId").getValue();
 
                         favIdUser = userId;
                         favIdEvent = eventId;
@@ -107,10 +112,9 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
     }
     @Override
     public void onBindViewHolder(@NonNull final favoritHolder holder, int position) {
-        String uId = favoritModelList.get(position).getuId();
-
+//        String uId = favoritModelList.get(position).getuId();
+        String uId = holder.userID;
         //event
-
         String eId = favoritModelList.get(position).geteId();
         String eJudul = favoritModelList.get(position).geteJudul();
         String eDescr = favoritModelList.get(position).geteDeskripsi();

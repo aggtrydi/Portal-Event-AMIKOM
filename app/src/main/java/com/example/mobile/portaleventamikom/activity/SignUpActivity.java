@@ -1,5 +1,6 @@
 package com.example.mobile.portaleventamikom.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -64,7 +65,10 @@ public class SignUpActivity extends AppCompatActivity {
                     edDaftarSandi.setFocusable(true);
                 } else {
                     registerUser(nama, nim, jurusan, email, sandi);
+                    Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
+                    startActivity(i);
                 }
+
 //                newActivity();
             }
         });

@@ -1,8 +1,9 @@
 package com.example.mobile.portaleventamikom.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth uAuth;
     DatabaseReference dbRef;
 
+    SharedPreferences sharedPreferences;
+    String MY_PREF, Email;
     EditText edLoginEmail;
     EditText edLoginSandi;
 
@@ -40,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         uAuth = FirebaseAuth.getInstance();
+
+        sharedPreferences = getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
         edLoginEmail = (EditText)findViewById(R.id.edLoginEmail);
         edLoginSandi = (EditText)findViewById(R.id.edLoginSandi);
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -61,13 +66,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void loginUser(String uEmail, String uSandi) {
+    private void loginUser(final String uEmail, final String uSandi) {
         uAuth.signInWithEmailAndPassword(uEmail, uSandi)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            FirebaseUser user = uAuth.getCurrentUser();
                             Intent masukIntent =  new Intent(LoginActivity.this, UtamaActivity.class);
                             startActivity(masukIntent);
                             finish();

@@ -58,7 +58,7 @@ public class BerandaFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
 
         rcyEventBeranda = viewBeranda.findViewById(R.id.rcyBeranda);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, true);
         linearLayoutManager.setStackFromEnd(true);
         linearLayoutManager.setReverseLayout(true);
 

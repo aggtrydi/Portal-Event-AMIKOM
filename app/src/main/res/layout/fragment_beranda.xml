@@ -21,10 +21,16 @@
             android:layout_marginLeft="20dp"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcyBeranda"
-        android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="2dp">
-    </androidx.recyclerview.widget.RecyclerView>
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcyBeranda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp">
+        </androidx.recyclerview.widget.RecyclerView>
+    </ScrollView>
+
 </LinearLayout>

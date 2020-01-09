@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     DatabaseReference dbRef;
 
     SharedPreferences sharedPreferences;
-    String MY_PREF, Email;
+    String MY_PREF;
     EditText edLoginEmail;
     EditText edLoginSandi;
 
@@ -76,7 +77,11 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(masukIntent);
                             finish();
                         } else {
-
+                            if(uSandi.length() < 6){
+                                edLoginSandi.setError("Sandi Kurang Dari 6");
+                            } else {
+                                Toast.makeText(LoginActivity.this, "Gagal Melakukan Login", Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                     }

@@ -113,10 +113,12 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
         FirebaseUser user;
         FirebaseDatabase db;
         DatabaseReference drUser, drEvent, drFavorit;
+        Query queryRefUser;
 
         ImageView eImageView, eFav, eLike;
         TextView uTimes, eJudul, eDeskripsi;
         LinearLayout btnMore;
+
 
         String userID, favId, favIdUser, favIdEvent;
 
@@ -134,29 +136,29 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
             db = FirebaseDatabase.getInstance();
             drUser = db.getReference("User");
             drEvent = db.getReference("Event");
-            drFavorit = db.getReference("Favorit");
+//            drFavorit = db.getReference("Favorit");
 
             FirebaseUser user = uAuth.getCurrentUser();
             userID = user.getUid();
 
-            drFavorit.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for (DataSnapshot ds: dataSnapshot.getChildren()){
-                        String favoritId = "" + ds.child("fId").getValue();
-                        String favoritIdUser = "" + ds.child("uId").getValue();
-                        String favoritIdEvent = "" + ds.child("eId").getValue();
-                        favId = favoritId;
-                        favIdUser = favoritIdUser;
-                        favIdEvent = favoritIdEvent;
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
+//            drFavorit.child("Favorit").addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    for (DataSnapshot ds: dataSnapshot.getChildren()){
+//                        String favoritId = "" + ds.child("fId").getValue();
+//                        String favoritIdUser = "" + ds.child("uId").getValue();
+//                        String favoritIdEvent = "" + ds.child("eId").getValue();
+//                        favId = favoritId;
+//                        favIdUser = favoritIdUser;
+//                        favIdEvent = favoritIdEvent;
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                }
+//            });
         }
     }
 
@@ -172,7 +174,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
         hashMap.put("eDesFav", eDesFav);
         hashMap.put("eImagePoster",eImageView );
 
-        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("Favorit");
+//        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("Favorit");
+        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("User").child(uIdFav).child("Favorite");
         dbref.child(timestamp).setValue(hashMap);
     }
 }

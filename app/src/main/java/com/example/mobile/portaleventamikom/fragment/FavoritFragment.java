@@ -34,11 +34,13 @@ import java.util.List;
 public class FavoritFragment extends Fragment {
 
     FirebaseAuth uAuth;
-
+    FirebaseUser  user;
     RecyclerView rcyFavorit;
     FavoritModel favoritModel;
     List<FavoritModel> favList;
     FavoritAdapter favoritAdapter;
+
+    String userID;
 
     public FavoritFragment() {
         // Required empty public constructor
@@ -53,7 +55,8 @@ public class FavoritFragment extends Fragment {
         setHasOptionsMenu(true);
 
         uAuth = FirebaseAuth.getInstance();
-
+        user = uAuth.getCurrentUser();
+        userID = user.getUid();
         rcyFavorit = viewFav.findViewById(R.id.rcyFavorit);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setStackFromEnd(true);
@@ -68,7 +71,7 @@ public class FavoritFragment extends Fragment {
     }
 
     private void loadFav() {
-        DatabaseReference dbRefFav = FirebaseDatabase.getInstance().getReference("Favorit");
+        DatabaseReference dbRefFav = FirebaseDatabase.getInstance().getReference("User").child(userID.trim()).child("Favorite");
         dbRefFav.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

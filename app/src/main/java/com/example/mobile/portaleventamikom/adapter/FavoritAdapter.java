@@ -34,14 +34,11 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
         FirebaseAuth uAuth;
         FirebaseUser user;
         //firebase database
-        Query queryRefUser, queryRefEvent;
         FirebaseDatabase db;
-        DatabaseReference drUser, drEvent, drFavorit;
-
+        DatabaseReference drFavorit;
         ImageView eImageView;
         TextView txtEJudul, txtEDeskripsi;
-
-        String userID, eventID, favID, favIdUser, favIdEvent;
+        String userID, eventID;
 
         public favoritHolder(@NonNull View itemView) {
             super(itemView);
@@ -51,56 +48,54 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
 
             uAuth = FirebaseAuth.getInstance();
             user = uAuth.getCurrentUser();
-
             db = FirebaseDatabase.getInstance();
-            drUser = db.getReference("User");
-            drEvent = db.getReference("Event");
-            drFavorit = db.getReference("Favorit");
+//            drUser = db.getReference("User");
+//            drEvent = db.getReference("Event");
+//            drFavorit = db.getReference("Favorit");
             //get from USer
-            FirebaseUser user = uAuth.getCurrentUser();
             userID = user.getUid();
 
             //get From database Event
-            drEvent.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for (DataSnapshot ds: dataSnapshot.getChildren()){
-                        String eventId = "" + ds.child("eId").getValue();
-                        eventID = eventId;
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                }
-            });
+//            drEvent.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    for (DataSnapshot ds: dataSnapshot.getChildren()){
+//                        String eventId = "" + ds.child("eId").getValue();
+//                        eventID = eventId;
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError) {
+//                }
+//            });
 
             //get from database favorite
-            queryRefUser = drFavorit.orderByChild("uId").equalTo(userID);
-            queryRefUser.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for (DataSnapshot ds: dataSnapshot.getChildren()){
-                        String userId = "" + ds.child("uId").getValue();
-                        String favId = "" + ds.child("favId").getValue();
-                        String eventId = "" + ds.child("eId").getValue();
-                        String eventJudulFav = "" + ds.child("eJudulFav").getValue();
-                        String eventDesFav = "" + ds.child("eDesFav").getValue();
-                        String eventImageFav =""+ ds.child("eImagePoster").getValue();
-
-                        favIdUser = userId;
-                        favIdEvent = eventId;
-                        favID = favId;
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                }
-            });
+//            queryRefUser = drFavorit.orderByChild("uId").equalTo(userID);
+//            queryRefUser.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    for (DataSnapshot ds: dataSnapshot.getChildren()){
+//                        String userId = "" + ds.child("uId").getValue();
+//                        String favId = "" + ds.child("favId").getValue();
+//                        String eventId = "" + ds.child("eId").getValue();
+//                        String eventJudulFav = "" + ds.child("eJudulFav").getValue();
+//                        String eventDesFav = "" + ds.child("eDesFav").getValue();
+//                        String eventImageFav =""+ ds.child("eImagePoster").getValue();
+//
+//                        favIdUser = userId;
+//                        favIdEvent = eventId;
+//                        favID = favId;
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError) {
+//                }
+//            });
 
             //view favorite by uId and eId
-
+            drFavorit = db.getReference("User").child(userID.toString().trim()).child("Favorite");
 
         }
     }
@@ -115,11 +110,12 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
         View view = LayoutInflater.from(ctx).inflate(R.layout.item_event_favorit,parent, false);
         return new favoritHolder(view);
     }
+
     @Override
     public void onBindViewHolder(@NonNull final favoritHolder holder, int position) {
-//        String uId = favoritModelList.get(position).getuId();
         String uId = holder.userID;
         String eId = holder.eventID;
+
         //event
         String eJudul = favoritModelList.get(position).geteJudulFav();
         String eDescr = favoritModelList.get(position).geteDesFav();
@@ -132,7 +128,6 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
             Picasso.get().load(eImage).into(holder.eImageView);
         } catch (Exception e) { }
     }
-//        String eId = favoritModelList.get(position).geteId();
 
     @Override
     public int getItemCount() {

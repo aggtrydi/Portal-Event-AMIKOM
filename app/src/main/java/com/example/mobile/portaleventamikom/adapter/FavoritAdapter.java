@@ -36,7 +36,7 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
         //firebase database
         FirebaseDatabase db;
         DatabaseReference drFavorit;
-        ImageView eImageView;
+        ImageView eImageView, unFav;
         TextView txtEJudul, txtEDeskripsi;
         String userID, eventID;
 
@@ -45,6 +45,7 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
             eImageView = itemView.findViewById(R.id.imgFavoritView);
             txtEJudul = itemView.findViewById(R.id.txtFavoritViewJudul);
             txtEDeskripsi= itemView.findViewById(R.id.txtFavoritViewDeskripsi);
+            unFav = itemView.findViewById(R.id.imgUnFav);
 
             uAuth = FirebaseAuth.getInstance();
             user = uAuth.getCurrentUser();
@@ -113,20 +114,33 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
 
     @Override
     public void onBindViewHolder(@NonNull final favoritHolder holder, int position) {
-        String uId = holder.userID;
+        final String uId = holder.userID;
         String eId = holder.eventID;
 
         //event
         String eJudul = favoritModelList.get(position).geteJudulFav();
         String eDescr = favoritModelList.get(position).geteDesFav();
         String eImage = favoritModelList.get(position).geteImagePoster();
-        String fid = favoritModelList.get(position).getfId();
+        final String fid = favoritModelList.get(position).getfId();
 
         holder.txtEJudul.setText(eJudul);
         holder.txtEDeskripsi.setText(eDescr);
         try {
             Picasso.get().load(eImage).into(holder.eImageView);
         } catch (Exception e) { }
+
+        holder.unFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String fId = fid.trim();
+                deleteFavorite(uId, fId);
+            }
+        });
+    }
+
+    private void deleteFavorite(String uId, String fId) {
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("User").child(uId).child("Favorite").child(fId);
+        dbRef.setValue(null);
     }
 
     @Override

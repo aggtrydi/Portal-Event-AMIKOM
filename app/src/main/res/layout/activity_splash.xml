@@ -7,15 +7,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.SplashActivity"
-    android:background="@drawable/background_gradient"
-    android:gravity="center">
-
+    android:background="@drawable/background_gradient">
 
     <ImageView
-        android:id="@+id/SplashImage"
-        android:padding="12px"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:id="@+id/imageView"
+        android:layout_width="325dp"
+        android:layout_height="match_parent"
         android:src="@drawable/splash"
         android:layout_gravity="center"/>
 </LinearLayout>

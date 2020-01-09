@@ -12,11 +12,18 @@
             android:padding="20dp">
             <LinearLayout
                 android:layout_width="200dp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
                 <ImageView
                     android:id="@+id/imgFavoritView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="230dp"/>
+                <ImageView
+                    android:id="@+id/imgUnFav"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/unfav"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_weight="1"

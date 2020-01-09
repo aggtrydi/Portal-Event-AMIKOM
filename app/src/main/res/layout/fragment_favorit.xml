@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".fragment.FavoritFragment"
     android:orientation="vertical"
-    android:padding="5dp"
-    >
+    android:padding="5dp" >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcyFavorit"

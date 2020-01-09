@@ -47,27 +47,23 @@
                     android:id="@+id/etJudul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="15dp"
                     android:hint="Masukkan Judul"
                     android:singleLine="true"
                     android:padding="10dp"
-                    android:textAlignment="center"
-                    />
+                    android:textAlignment="center" />
 
                 <EditText
                     android:id="@+id/etDeskripsi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:hint="Masukkan Deskripsi"
                     android:inputType="textCapSentences|textMultiLine"
                     android:padding="10dp"
                     android:minHeight="100dp"
                     android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:textAlignment="center"
-                    />
+                    android:textAlignment="center" />
 
                 <ImageView
                     android:id="@+id/imgviewPoster"
@@ -76,8 +72,7 @@
                     android:minWidth="150dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:minHeight="125dp"
-                    />
+                    android:minHeight="125dp" />
 
                 <Button
                     android:id="@+id/btnUpload"
@@ -90,6 +85,4 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
-
-
 </ScrollView>

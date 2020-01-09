@@ -2,9 +2,9 @@ package com.example.mobile.portaleventamikom.model;
 
 public class FavoritModel {
     String eId;
-    String eJudul;
-    String eDeskripsi;
-    String eImage;
+    String eJudulFav;
+    String eDesFav;
+    String eImagePoster;
     String eTimes;
     String uId;
     String fId;
@@ -12,11 +12,11 @@ public class FavoritModel {
 
     }
 
-    public FavoritModel(String eId, String eJudul, String eDeskripsi, String eImage, String eTimes, String uId, String fId) {
+    public FavoritModel(String eId, String eJudulFav, String eDesFav, String eImagePoster, String eTimes, String uId, String fId) {
         this.eId = eId;
-        this.eJudul = eJudul;
-        this.eDeskripsi = eDeskripsi;
-        this.eImage = eImage;
+        this.eJudulFav = eJudulFav;
+        this.eDesFav = eDesFav;
+        this.eImagePoster = eImagePoster;
         this.eTimes = eTimes;
         this.uId = uId;
         this.fId = fId;
@@ -30,28 +30,28 @@ public class FavoritModel {
         this.eId = eId;
     }
 
-    public String geteJudul() {
-        return eJudul;
+    public String geteJudulFav() {
+        return eJudulFav;
     }
 
-    public void seteJudul(String eJudul) {
-        this.eJudul = eJudul;
+    public void seteJudulFav(String eJudulFav) {
+        this.eJudulFav = eJudulFav;
     }
 
-    public String geteDeskripsi() {
-        return eDeskripsi;
+    public String geteDesFav() {
+        return eDesFav;
     }
 
-    public void seteDeskripsi(String eDeskripsi) {
-        this.eDeskripsi = eDeskripsi;
+    public void seteDesFav(String eDesFav) {
+        this.eDesFav = eDesFav;
     }
 
-    public String geteImage() {
-        return eImage;
+    public String geteImagePoster() {
+        return eImagePoster;
     }
 
-    public void seteImage(String eImage) {
-        this.eImage = eImage;
+    public void seteImagePoster(String eImagePoster) {
+        this.eImagePoster = eImagePoster;
     }
 
     public String geteTimes() {

@@ -66,9 +66,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
         String nim = eventModelList.get(position).getuNim();
         String dp = eventModelList.get(position).getuImage();
         final String pId = eventModelList.get(position).geteId();
-        String pJudul = eventModelList.get(position).geteJudul();
-        String pDescr = eventModelList.get(position).geteDeskripsi();
-        String pImage = eventModelList.get(position).geteImage();
+        final String pJudul = eventModelList.get(position).geteJudul();
+        final String pDescr = eventModelList.get(position).geteDeskripsi();
+        final String pImage = eventModelList.get(position).geteImage();
         String pTime = eventModelList.get(position).geteTimes();
 
         //Set Data
@@ -93,7 +93,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
             public void onClick(View v) {
                 String uIdFav = holder.userID.trim();
                 String eIdFav = pId.toString().trim();
-                setFavorite(uIdFav, eIdFav);
+                String eJudulFav = pJudul.toString().trim();
+                String eDesFav = pDescr.toString().trim();
+                String eImageView = pImage.toString().trim();
+                setFavorite(uIdFav, eIdFav, eJudulFav, eDesFav, eImageView);
             }
         });
     }
@@ -157,7 +160,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
         }
     }
 
-    private void setFavorite(String uIdFav, String eIdFav) {
+    private void setFavorite(String uIdFav, String eIdFav, String eJudulFav, String eDesFav, String eImageView) {
 
         final String timestamp = String.valueOf(System.currentTimeMillis());
 
@@ -165,6 +168,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
         hashMap.put("fId", timestamp);
         hashMap.put("uId", uIdFav);
         hashMap.put("eId", eIdFav);
+        hashMap.put("eJudulFav", eJudulFav);
+        hashMap.put("eDesFav", eDesFav);
+        hashMap.put("eImagePoster",eImageView );
 
         DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("Favorit");
         dbref.child(timestamp).setValue(hashMap);

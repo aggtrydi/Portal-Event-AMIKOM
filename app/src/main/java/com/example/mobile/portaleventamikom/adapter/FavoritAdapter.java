@@ -34,20 +34,20 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
         FirebaseAuth uAuth;
         FirebaseUser user;
         //firebase database
-        Query queryRef;
+        Query queryRefUser, queryRefEvent;
         FirebaseDatabase db;
         DatabaseReference drUser, drEvent, drFavorit;
 
         ImageView eImageView;
-        TextView eJudul, eDeskripsi;
+        TextView txtEJudul, txtEDeskripsi;
 
         String userID, eventID, favID, favIdUser, favIdEvent;
 
         public favoritHolder(@NonNull View itemView) {
             super(itemView);
-            eImageView = itemView.findViewById(R.id.imgFavoritEvent);
-            eJudul = itemView.findViewById(R.id.txtFavoritViewJudul);
-            eDeskripsi= itemView.findViewById(R.id.txtFavoritViewDeskripsi);
+            eImageView = itemView.findViewById(R.id.imgFavoritView);
+            txtEJudul = itemView.findViewById(R.id.txtFavoritViewJudul);
+            txtEDeskripsi= itemView.findViewById(R.id.txtFavoritViewDeskripsi);
 
             uAuth = FirebaseAuth.getInstance();
             user = uAuth.getCurrentUser();
@@ -72,19 +72,21 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                 }
             });
 
             //get from database favorite
-            queryRef = drFavorit.orderByChild("uId").equalTo(userID);
-            queryRef.addValueEventListener(new ValueEventListener() {
+            queryRefUser = drFavorit.orderByChild("uId").equalTo(userID);
+            queryRefUser.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot ds: dataSnapshot.getChildren()){
                         String userId = "" + ds.child("uId").getValue();
                         String favId = "" + ds.child("favId").getValue();
                         String eventId = "" + ds.child("eId").getValue();
+                        String eventJudulFav = "" + ds.child("eJudulFav").getValue();
+                        String eventDesFav = "" + ds.child("eDesFav").getValue();
+                        String eventImageFav =""+ ds.child("eImagePoster").getValue();
 
                         favIdUser = userId;
                         favIdEvent = eventId;
@@ -94,9 +96,12 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                 }
             });
+
+            //view favorite by uId and eId
+
+
         }
     }
     public FavoritAdapter(Context ctx, List<FavoritModel> favoritModelList) {
@@ -114,24 +119,20 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
     public void onBindViewHolder(@NonNull final favoritHolder holder, int position) {
 //        String uId = favoritModelList.get(position).getuId();
         String uId = holder.userID;
+        String eId = holder.eventID;
         //event
-        String eId = favoritModelList.get(position).geteId();
-        String eJudul = favoritModelList.get(position).geteJudul();
-        String eDescr = favoritModelList.get(position).geteDeskripsi();
-        String eImage = favoritModelList.get(position).geteImage();
-
-        //favorit
+        String eJudul = favoritModelList.get(position).geteJudulFav();
+        String eDescr = favoritModelList.get(position).geteDesFav();
+        String eImage = favoritModelList.get(position).geteImagePoster();
         String fid = favoritModelList.get(position).getfId();
 
-        holder.eJudul.setText(eId);
-        holder.eDeskripsi.setText(uId);
+        holder.txtEJudul.setText(eJudul);
+        holder.txtEDeskripsi.setText(eDescr);
         try {
             Picasso.get().load(eImage).into(holder.eImageView);
-        } catch (Exception e) {
-
-        }
-
+        } catch (Exception e) { }
     }
+//        String eId = favoritModelList.get(position).geteId();
 
     @Override
     public int getItemCount() {

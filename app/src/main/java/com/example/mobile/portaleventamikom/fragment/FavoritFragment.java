@@ -63,14 +63,13 @@ public class FavoritFragment extends Fragment {
 
         favList = new ArrayList<>();
         loadFav();
-
         return viewFav;
 
     }
 
     private void loadFav() {
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Favorit");
-        dbRef.addValueEventListener(new ValueEventListener() {
+        DatabaseReference dbRefFav = FirebaseDatabase.getInstance().getReference("Favorit");
+        dbRefFav.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 favList.clear();
@@ -79,13 +78,10 @@ public class FavoritFragment extends Fragment {
                     favList.add(favoritModel);
                     favoritAdapter = new FavoritAdapter(getActivity(), favList);
                     rcyFavorit.setAdapter(favoritAdapter);
-
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }

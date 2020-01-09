@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.mobile.portaleventamikom.R;
 import com.example.mobile.portaleventamikom.fragment.BerandaFragment;
+import com.example.mobile.portaleventamikom.fragment.EventAndaFragment;
 import com.example.mobile.portaleventamikom.fragment.FavoritFragment;
 import com.example.mobile.portaleventamikom.fragment.ProfilFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -24,6 +25,7 @@ public class UtamaActivity extends AppCompatActivity {
     BerandaFragment berandaFragment;
     FavoritFragment favoritFragment;
     ProfilFragment profilFragment;
+    EventAndaFragment eventAndaFragment;
 
     FloatingActionButton btnAddEvent;
     @Override
@@ -34,6 +36,7 @@ public class UtamaActivity extends AppCompatActivity {
         berandaFragment = new BerandaFragment();
         favoritFragment = new FavoritFragment();
         profilFragment = new ProfilFragment();
+        eventAndaFragment = new EventAndaFragment();
 
         changeFragment(berandaFragment);
 
@@ -46,6 +49,7 @@ public class UtamaActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
                     case R.id.bnvBeranda : btnAddEvent.setVisibility(View.VISIBLE);changeFragment(berandaFragment);break;
                     case R.id.bnvFavorit : btnAddEvent.setVisibility(View.GONE);changeFragment(favoritFragment);break;
+                    case R.id.bnvEventAnda : btnAddEvent.setVisibility(View.GONE);changeFragment(eventAndaFragment);break;
                     case R.id.bnvProfil : btnAddEvent.setVisibility(View.GONE);changeFragment(profilFragment);break;
                 }
                 return true;

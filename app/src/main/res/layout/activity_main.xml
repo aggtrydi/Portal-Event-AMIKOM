@@ -25,6 +25,7 @@
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        app:labelVisibilityMode="labeled"
         android:layout_below="@id/frameUtama"
         android:id="@+id/bnvUtama"
         android:layout_width="match_parent"

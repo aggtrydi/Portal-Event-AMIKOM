@@ -11,8 +11,14 @@
         android:icon="@drawable/ic_favorite_black_24dp"
         />
     <item
+        android:id="@+id/bnvEventAnda"
+        android:title="Event Anda"
+        android:icon="@drawable/ic_event_black_24dp"
+        />
+    <item
         android:id="@+id/bnvProfil"
         android:title="Profil"
         android:icon="@drawable/ic_account_box_black_24dp"
         />
+
 </menu>

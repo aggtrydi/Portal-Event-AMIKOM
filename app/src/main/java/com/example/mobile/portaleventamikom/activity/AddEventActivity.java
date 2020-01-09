@@ -36,7 +36,6 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 
-
 public class AddEventActivity extends AppCompatActivity {
     FirebaseAuth eAuth;
     DatabaseReference dbRef;
@@ -299,7 +298,6 @@ public class AddEventActivity extends AppCompatActivity {
         cv.put(MediaStore.Images.Media.TITLE,"Temp Pick");
         cv.put(MediaStore.Images.Media.DESCRIPTION,"Temp Descr");
         uri_image = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,cv);
-
 
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT,uri_image);

@@ -54,7 +54,7 @@
 
         <Button
             android:id="@+id/btnLogin"
-            android:textColor="#FFF"
+            android:textColor="@color/colorAccentThird"
             android:background="@drawable/btn_gradient"
             android:layout_marginTop="20dp"
             android:textAllCaps="false"
@@ -76,7 +76,7 @@
 
             <Button
                 android:id="@+id/signUp_text"
-                android:textColor="#ff4141"
+                android:textColor="@color/colorAccent"
                 android:background="@color/colorButtonTrans"
                 android:textAllCaps="false"
                 android:text="Daftar"

@@ -10,7 +10,7 @@
     <color name="colorSecondDark"></color>
 
     //Color Accent
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#ff4141</color>
     <color name="colorAccentSec">#FFAC0E</color>
     <color name="colorAccentThird">#F4F4F2</color>
 
@@ -19,8 +19,12 @@
     <color name="colorTextFragment">#F7F8F3</color>
 
     //color Button
-    <color name="colorButtonLogin">#7E35C0</color>
-    <color name="colorButtonDaftar">#ECBDEE</color>
+    <color name="colorButton1">#9fc9dc</color>
+    <color name="colorButton2">#d6adf3</color>
     <color name="colorButtonTrans" >#00FFFFFF</color>
+
+    //color pastel
+    <color name="colorPastelDark">#847ad3</color>
+    <color name="colorPastelLight">#fcc8ec</color>
 
 </resources>

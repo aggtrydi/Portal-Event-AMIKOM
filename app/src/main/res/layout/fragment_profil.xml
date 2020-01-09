@@ -8,14 +8,24 @@
     android:orientation="vertical"
     android:background="@drawable/background_gradient">
 
-    <!--    Image view Profil-->
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/logo_pea"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profil" />
+            android:text="Your Profile"
+            android:layout_marginLeft="25dp"
+            android:textStyle="bold"
+            android:textSize="17dp"/>
+
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
@@ -46,11 +56,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="20dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="50dp"
->
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/background_edittext">
 
         <LinearLayout
             android:id="@+id/group_Info"
@@ -63,7 +73,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:layout_width="100dp"
@@ -150,7 +161,7 @@
             android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/btn_gradient"
             android:text="Logout" />
 

@@ -16,8 +16,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
-
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnAddEvent"
             android:layout_width="wrap_content"
@@ -27,8 +25,6 @@
             android:layout_margin="16dp" />
     </FrameLayout>
 
-
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_below="@id/frameUtama"
         android:id="@+id/bnvUtama"
@@ -36,7 +32,6 @@
         android:layout_height="wrap_content"
         android:background="#000fffff"
         app:menu="@menu/bnv_menu"
-
         />
 
 </LinearLayout>

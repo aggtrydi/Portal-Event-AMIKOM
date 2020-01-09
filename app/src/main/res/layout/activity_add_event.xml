@@ -72,7 +72,8 @@
                     android:minWidth="150dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:minHeight="125dp" />
+                    android:minHeight="125dp"
+                    />
 
                 <Button
                     android:id="@+id/btnUpload"

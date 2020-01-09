@@ -5,17 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.mobile.portaleventamikom.R;
-import com.example.mobile.portaleventamikom.adapter.EventAdapter;
 import com.example.mobile.portaleventamikom.adapter.FavoritAdapter;
-import com.example.mobile.portaleventamikom.model.EventModel;
 import com.example.mobile.portaleventamikom.model.FavoritModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

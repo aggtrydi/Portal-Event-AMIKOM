@@ -6,16 +6,31 @@
     tools:context=".fragment.FavoritFragment"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/logo_pea"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Favorite"
+            android:layout_marginLeft="25dp"
+            android:textStyle="bold"
+            android:textSize="17dp"/>
+    </androidx.appcompat.widget.Toolbar>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
+        android:layout_height="wrap_content">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcyFavorit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5px"
-            />
+            android:padding="5px" />
     </ScrollView>
+
 </LinearLayout>

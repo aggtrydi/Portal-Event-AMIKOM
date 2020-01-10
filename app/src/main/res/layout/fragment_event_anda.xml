@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.EventAndaFragment">
+    tools:context=".fragment.EventAndaFragment"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/logo_pea"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Event"
+            android:layout_marginLeft="25dp"
+            android:textStyle="bold"
+            android:textSize="17dp"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -16,4 +34,5 @@
             android:padding="2dp">
         </androidx.recyclerview.widget.RecyclerView>
     </ScrollView>
-</FrameLayout>
+
+</LinearLayout>

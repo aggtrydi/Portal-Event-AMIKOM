@@ -38,43 +38,42 @@
                             android:layout_gravity="center"/>
                         <TextView
                             android:id="@+id/eDeskripsiView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="50dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="Deskripsi"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center">
+<!--                    <ImageView-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:id="@+id/imgLikeEvent"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:src="@drawable/ic_like_border_black_24dp"-->
+<!--                        />-->
+<!--                    <TextView-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:text="Count Like"-->
+<!--                        android:gravity="center_vertical"/>-->
                     <ImageView
-                        android:layout_weight="1"
-                        android:id="@+id/imgLikeEvent"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/ic_like_border_black_24dp"
-                        />
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_marginLeft="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Count Like"
-                        android:gravity="center_vertical"/>
-                    <ImageView
-                        android:layout_weight="1"
                         android:id="@+id/imgFavoritEvent"
-                        android:layout_marginRight="25dp"
-                        android:layout_width="25dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:src="@drawable/ic_favorit_border_black_24dp"/>
-                    <Button
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="About"
-                        android:background="@drawable/btn_gradient"
-                        android:textColor="#fff"/>
+<!--                    <Button-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:text="About"-->
+<!--                        android:background="@drawable/btn_gradient"-->
+<!--                        android:textColor="#fff"/>-->
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

@@ -100,7 +100,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
             eDeskripsi = itemView.findViewById(R.id.eDeskripsiView);
 
             eFav = itemView.findViewById(R.id.imgFavoritEvent);
-            eLike = itemView.findViewById(R.id.imgLikeEvent);
+//            eLike = itemView.findViewById(R.id.imgLikeEvent);
 
             uAuth = FirebaseAuth.getInstance();
             user = uAuth.getCurrentUser();

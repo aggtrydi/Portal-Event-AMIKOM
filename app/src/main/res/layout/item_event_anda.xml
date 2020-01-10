@@ -47,32 +47,13 @@
                     android:layout_height="40dp"
                     android:orientation="horizontal"
                     android:layout_marginBottom="5dp">
-                    <ImageView
-                        android:layout_weight="1"
-                        android:id="@+id/imgLikeEvent"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/ic_like_border_black_24dp"
-                        />
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_marginLeft="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Count Like"
-                        android:gravity="center_vertical"/>
-                    <ImageView
-                        android:layout_weight="1"
-                        android:id="@+id/imgFavoritEvent"
-                        android:layout_marginRight="25dp"
-                        android:layout_width="25dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/ic_favorit_border_black_24dp"/>
+
                     <Button
+                        android:id="@+id/btnHapusEvent"
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="About"
+                        android:text="hapus Item"
                         android:background="@drawable/btn_gradient"
                         android:textColor="#fff"/>
                 </LinearLayout>

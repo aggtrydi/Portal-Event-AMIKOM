@@ -166,10 +166,13 @@ public class AddEventActivity extends AppCompatActivity {
                                             public void onSuccess(Void aVoid) {
                                                 Toast.makeText(AddEventActivity.this, "Event di publish", Toast.LENGTH_SHORT).show();
 
-                                                etEventJudul.setText("");
-                                                etEtEventDeskripsi.setText("");
-                                                imgEventUplaod.setImageURI(null);
-                                                uri_image = null;
+                                                Intent i = new Intent(AddEventActivity.this, UtamaActivity.class);
+                                                startActivity(i);
+                                                finish();
+//                                                etEventJudul.setText("");
+//                                                etEtEventDeskripsi.setText("");
+//                                                imgEventUplaod.setImageURI(null);
+//                                                uri_image = null;
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -195,31 +198,35 @@ public class AddEventActivity extends AppCompatActivity {
 
 
             HashMap<Object,String> hashMap = new HashMap<>();
-            hashMap.put("uid",uId);
-            hashMap.put("nama",uNama);
-            hashMap.put("nim",uNim);
-            hashMap.put("email",uEmail);
-            hashMap.put("dp",uImage);
-            hashMap.put("pId",timestamp);
-            hashMap.put("pJudul",judul);
-            hashMap.put("pDescr",deskripsi);
-            hashMap.put("pImage","noImage");
-            hashMap.put("pTimes",timestamp);
+            hashMap.put("uId", uId);
+            hashMap.put("uNama", uNama);
+            hashMap.put("uNim", uNim);
+            hashMap.put("uEmail", uEmail);
+            hashMap.put("uImage", uImage);
+            hashMap.put("eId", timestamp);
+            hashMap.put("eJudul", judul);
+            hashMap.put("eDeskripsi", deskripsi);
+            hashMap.put("eImage", "noImage");
+            hashMap.put("eTimes", timestamp);
+
 
             //path store post data
 
-            DatabaseReference reff = FirebaseDatabase.getInstance().getReference("Postingan");
+            DatabaseReference reff = FirebaseDatabase.getInstance().getReference("Event");
 
             reff.child(timestamp).setValue(hashMap)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(AddEventActivity.this,"Postingan di publish",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddEventActivity.this,"Event di publish",Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(AddEventActivity.this, UtamaActivity.class);
+                            startActivity(i);
+                            finish();
 
-                            etEventJudul.setText("");
-                            etEtEventDeskripsi.setText("");
-                            imgEventUplaod.setImageURI(null);
-                            uri_image = null;
+//                            etEventJudul.setText("");
+//                            etEtEventDeskripsi.setText("");
+//                            imgEventUplaod.setImageURI(null);
+//                            uri_image = null;
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {

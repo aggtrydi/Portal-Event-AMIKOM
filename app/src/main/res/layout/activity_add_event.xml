@@ -60,14 +60,18 @@
             android:minHeight="150dp"
             android:gravity="start"
             android:layout_marginBottom="15dp"/>
-
-        <ImageView
-            android:id="@+id/imgviewPoster"
+        <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:src="@drawable/addimg"/>
-
+            android:layout_height="175dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/imgviewPoster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/addimg"/>
+        </LinearLayout>
         <Button
             android:id="@+id/btnUpload"
             android:layout_width="wrap_content"

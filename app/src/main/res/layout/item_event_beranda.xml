@@ -13,21 +13,28 @@
             android:layout_height="match_parent"
             android:orientation="vertical" android:padding="10dp">
 
-            <ImageView
-                android:cropToPadding="true"
-                android:id="@+id/eImagePoster"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/logo_pea"
-                android:layout_marginBottom="5dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="640px"
+                android:layout_gravity="center">
+                <ImageView
+                    android:cropToPadding="true"
+                    android:id="@+id/eImagePoster"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logo_pea"
+                    android:layout_marginBottom="5dp"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <LinearLayout
+                    android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_height="75dp"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
                         <TextView
                             android:id="@+id/eJudulView"
@@ -48,32 +55,13 @@
                     android:orientation="horizontal"
                     android:layout_marginBottom="5dp"
                     android:layout_gravity="center">
-<!--                    <ImageView-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:id="@+id/imgLikeEvent"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:src="@drawable/ic_like_border_black_24dp"-->
-<!--                        />-->
-<!--                    <TextView-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:text="Count Like"-->
-<!--                        android:gravity="center_vertical"/>-->
+
                     <ImageView
                         android:id="@+id/imgFavoritEvent"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:src="@drawable/ic_favorit_border_black_24dp"/>
-<!--                    <Button-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:text="About"-->
-<!--                        android:background="@drawable/btn_gradient"-->
-<!--                        android:textColor="#fff"/>-->
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

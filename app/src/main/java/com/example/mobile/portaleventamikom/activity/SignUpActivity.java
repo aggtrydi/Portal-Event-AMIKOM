@@ -62,9 +62,11 @@ public class SignUpActivity extends AppCompatActivity {
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     edDaftarEmail.setText("Salah Email");
                     edDaftarEmail.setFocusable(true);
+                    Toast.makeText(SignUpActivity.this, "Masukkan Email dengan Benar", Toast.LENGTH_SHORT).show();
                 } else if (sandi.length() < 5) {
                     edDaftarSandi.setText("Sandi Terlalu Pendek");
                     edDaftarSandi.setFocusable(true);
+                    Toast.makeText(SignUpActivity.this, "Masukkan Sandi dengan Benar", Toast.LENGTH_SHORT).show();
                 } else {
                     registerUser(nama, nim, jurusan, email, sandi);
                     Toast.makeText(SignUpActivity.this, "Anda Berhasil SignUp", Toast.LENGTH_SHORT).show();

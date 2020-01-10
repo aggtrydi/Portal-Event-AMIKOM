@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -83,6 +84,7 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
             public void onClick(View v) {
                 String fId = fid.trim();
                 deleteFavorite(uId, fId);
+                Toast.makeText(v.getContext(),"Menghapus dari Favorit", Toast.LENGTH_SHORT).show();
             }
         });
     }

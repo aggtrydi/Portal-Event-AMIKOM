@@ -20,6 +20,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 public class LoginActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
@@ -48,9 +50,14 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String uEmail = edLoginEmail.getText().toString();
-                String uSandi = edLoginSandi.getText().toString();
-                loginUser(uEmail,uSandi);
+                try {
+                    String uEmail = edLoginEmail.getText().toString();
+                    String uSandi = edLoginSandi.getText().toString();
+                    loginUser(uEmail,uSandi);
+                } catch (Exception e){
+                    Toast.makeText(LoginActivity.this, "Pastikan Tidak ada Yang Kosong ",Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

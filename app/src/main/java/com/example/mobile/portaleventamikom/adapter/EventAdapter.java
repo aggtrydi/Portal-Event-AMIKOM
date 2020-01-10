@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.mobile.portaleventamikom.R;
@@ -69,6 +71,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
                 String eDesFav = pDescr.toString().trim();
                 String eImageView = pImage.toString().trim();
                 setFavorite(uIdFav, eIdFav, eJudulFav, eDesFav, eImageView);
+                Toast.makeText(v.getContext(), "Menambahkan ke Favorit Anda", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -127,5 +130,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.eventHolder>
         hashMap.put("eImagePoster",eImageView );
         DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("User").child(uIdFav).child("Favorite");
         dbref.child(timestamp).setValue(hashMap);
+
     }
 }

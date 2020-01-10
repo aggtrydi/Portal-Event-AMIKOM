@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -64,6 +65,7 @@ public class EventAndaAdapter extends RecyclerView.Adapter<EventAndaAdapter.even
             public void onClick(View v) {
                 String pIdE = pId.trim();
                 deleteEvent(uId,userId, pIdE);
+                Toast.makeText(v.getContext(),"Event Anda telah Terhapus", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -82,7 +84,6 @@ public class EventAndaAdapter extends RecyclerView.Adapter<EventAndaAdapter.even
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                 }
             });
         }

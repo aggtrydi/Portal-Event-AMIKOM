@@ -41,7 +41,7 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
             eImageView = itemView.findViewById(R.id.imgFavoritView);
             txtEJudul = itemView.findViewById(R.id.txtFavoritViewJudul);
             txtEDeskripsi= itemView.findViewById(R.id.txtFavoritViewDeskripsi);
-            txtEDeskripsi.setMovementMethod(new ScrollingMovementMethod());
+
             unFav = itemView.findViewById(R.id.imgUnFav);
 
             uAuth = FirebaseAuth.getInstance();
@@ -77,6 +77,7 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
 
         holder.txtEJudul.setText(eJudul);
         holder.txtEDeskripsi.setText(eDescr);
+        holder.txtEDeskripsi.setMovementMethod(new ScrollingMovementMethod());
         try {
             Picasso.get().load(eImage).into(holder.eImageView);
         } catch (Exception e) { }

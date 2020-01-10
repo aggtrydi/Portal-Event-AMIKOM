@@ -87,9 +87,9 @@ public class EventAndaAdapter extends RecyclerView.Adapter<EventAndaAdapter.even
                 }
             });
 
-            DatabaseReference dbRefFav = FirebaseDatabase.getInstance().getReference("User")
-                    .child(uId).child("Favorit").child(pIdE);
-            dbRefFav.setValue(null);
+//            DatabaseReference dbRefFav = FirebaseDatabase.getInstance().getReference("User")
+//                    .child(uId).child("Favorit").child(pIdE);
+//            dbRefFav.setValue(null);
         }
     }
 

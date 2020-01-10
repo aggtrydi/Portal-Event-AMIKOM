@@ -59,6 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String jurusan = edDaftarJurusan.getText().toString().trim();
                 String email = edDaftarEmail.getText().toString().trim();
                 String sandi = edDaftarSandi.getText().toString().trim();
+
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     edDaftarEmail.setText("Salah Email");
                     edDaftarEmail.setFocusable(true);
@@ -69,12 +70,9 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this, "Masukkan Sandi dengan Benar", Toast.LENGTH_SHORT).show();
                 } else {
                     registerUser(nama, nim, jurusan, email, sandi);
-                    Toast.makeText(SignUpActivity.this, "Anda Berhasil SignUp", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
-                    startActivity(i);
+
                 }
 
-//                newActivity();
             }
         });
     }
@@ -109,7 +107,8 @@ public class SignUpActivity extends AppCompatActivity {
                         dbref.child(uid).setValue(hashMap);
 
                         if(task.isSuccessful()){
-
+                            Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
+                            startActivity(i);
                         } else {
 
                         }

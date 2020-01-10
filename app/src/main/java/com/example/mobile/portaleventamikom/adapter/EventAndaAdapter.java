@@ -86,6 +86,10 @@ public class EventAndaAdapter extends RecyclerView.Adapter<EventAndaAdapter.even
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                 }
             });
+
+            DatabaseReference dbRefFav = FirebaseDatabase.getInstance().getReference("User")
+                    .child(uId).child("Favorit").child(pIdE);
+            dbRefFav.setValue(null);
         }
     }
 

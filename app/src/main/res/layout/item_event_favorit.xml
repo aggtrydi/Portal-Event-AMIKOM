@@ -21,7 +21,9 @@
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:padding="5dp"
+                android:orientation="vertical"
+                android:scrollbarAlwaysDrawVerticalTrack="true">
                 <TextView
                     android:id="@+id/txtFavoritViewJudul"
                     android:layout_width="match_parent"
@@ -32,7 +34,9 @@
                     android:layout_weight="1"
                     android:id="@+id/txtFavoritViewDeskripsi"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="0dp"
+                    android:scrollbars="vertical"
+                    />
                 <ImageView
                     android:id="@+id/imgUnFav"
                     android:layout_width="30dp"

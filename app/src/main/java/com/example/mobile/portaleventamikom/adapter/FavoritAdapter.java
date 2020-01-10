@@ -1,6 +1,7 @@
 package com.example.mobile.portaleventamikom.adapter;
 
 import android.content.Context;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,7 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.favoritH
             eImageView = itemView.findViewById(R.id.imgFavoritView);
             txtEJudul = itemView.findViewById(R.id.txtFavoritViewJudul);
             txtEDeskripsi= itemView.findViewById(R.id.txtFavoritViewDeskripsi);
+            txtEDeskripsi.setMovementMethod(new ScrollingMovementMethod());
             unFav = itemView.findViewById(R.id.imgUnFav);
 
             uAuth = FirebaseAuth.getInstance();

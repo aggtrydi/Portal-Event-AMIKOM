@@ -1,11 +1,13 @@
 package com.example.mobile.portaleventamikom.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,13 +60,14 @@ public class SignUpActivity extends AppCompatActivity {
                 String email = edDaftarEmail.getText().toString().trim();
                 String sandi = edDaftarSandi.getText().toString().trim();
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    edDaftarEmail.setText("salah email");
+                    edDaftarEmail.setText("Salah Email");
                     edDaftarEmail.setFocusable(true);
                 } else if (sandi.length() < 5) {
-                    edDaftarSandi.setText("Sandi terlalu Pendek");
+                    edDaftarSandi.setText("Sandi Terlalu Pendek");
                     edDaftarSandi.setFocusable(true);
                 } else {
                     registerUser(nama, nim, jurusan, email, sandi);
+                    Toast.makeText(SignUpActivity.this, "Anda Berhasil SignUp", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
                     startActivity(i);
                 }

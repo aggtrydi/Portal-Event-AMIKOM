@@ -88,23 +88,6 @@ public class EventAndaAdapter extends RecyclerView.Adapter<EventAndaAdapter.even
         }
     }
 
-//    private void deleteEvent(final String userId, final String pId, String uIdE) {
-//        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
-//        Query query =dbRef.child("Event").child(pId).orderByChild("uId").equalTo(userId);
-//        query.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                for (DataSnapshot ds: dataSnapshot.getChildren()){
-//                    ds.getRef().removeValue();
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//    }
 
     @Override
     public int getItemCount() {

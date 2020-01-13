@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="20dp">
+            android:padding="10dp">
                 <ImageView
                     android:id="@+id/imgFavoritView"
                     android:layout_width="170dp"
@@ -21,7 +21,7 @@
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:padding="5dp"
+                android:padding="10dp"
                 android:orientation="vertical"
                 android:scrollbarAlwaysDrawVerticalTrack="true">
                 <TextView

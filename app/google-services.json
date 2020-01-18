@@ -8,6 +8,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:785497532154:android:961c24c4be36bd050b8b43",
+        "android_client_info": {
+          "package_name": "com.amikom.portaleventamikom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785497532154-dmrbi95rlfmhm94huk3cvm4brfcv1vs5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqxuD5Ft-Z8OaiTlyqT0OuRe6TCTL6Osg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785497532154-dmrbi95rlfmhm94huk3cvm4brfcv1vs5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:785497532154:android:a1726b9fc05900fd0b8b43",
         "android_client_info": {
           "package_name": "com.example.mobile.portaleventamikom"
@@ -30,6 +59,35 @@
             "certificate_hash": "80499b86985eb67c1af5081cd9594ef51d481ae4"
           }
         },
+        {
+          "client_id": "785497532154-dmrbi95rlfmhm94huk3cvm4brfcv1vs5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqxuD5Ft-Z8OaiTlyqT0OuRe6TCTL6Osg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785497532154-dmrbi95rlfmhm94huk3cvm4brfcv1vs5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785497532154:android:08b1fc94a81f4b600b8b43",
+        "android_client_info": {
+          "package_name": "com.pea.mobile.portaleventamikom"
+        }
+      },
+      "oauth_client": [
         {
           "client_id": "785497532154-dmrbi95rlfmhm94huk3cvm4brfcv1vs5.apps.googleusercontent.com",
           "client_type": 3
